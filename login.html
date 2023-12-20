@@ -1,4 +1,3 @@
-<!-- GestionnaireDEmprunt -->
 <!DOCTYPE html>
 <html lang="fr" class="h-100">
 
@@ -6,20 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GestionnaireDEmprunt</title>
-<<<<<<< HEAD
-
-    <script src="main.js"></script>
-=======
->>>>>>> a706f385232adcf4e34a281fa89ce003a136c75f
     <link rel="stylesheet" href="ressources/styles/style.css">
     <link href="ressources/styles/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body class="h-100 text-black">
     <div class="d-flex justify-content-center align-items-center h-100 flex-column">
-        <h1>Gestionnaire d'emprunts</h1>
-        <p class="text-center mb-5">Bienvenue sur le gestionnaire d'emprunts</p>
-        <a href="login.html" class="btn btn-primary border-white p-4 fw-bold">Commencer</a>
+        <h1 class="mb-5">Connexion</h1>
+        <form>
+            <div class="mb-3">
+                <label for="inputIdentifiant" class="form-label">Identifiant</label>
+                <input type="text" class="form-control w-100" id="inputIdentifiant">
+            </div>
+            <div class="mb-3">
+                <label for="inputMotDePasse" class="form-label">Mot de passe</label>
+                <input type="password" class="form-control" id="inputMotDePasse">
+            </div>
+            <button type="submit" class="btn btn-primary w-100 mt-4">Se connecter</button>
+        </form>
     </div>
 
     <footer class="fixed-bottom">
