@@ -1,6 +1,4 @@
-window.onload = function() {
-    check_afk();
-}
+var intervalId = window.setInterval(check_afk,1000);
 
 var check_afk = function() {
     var lastTimeEvent;
