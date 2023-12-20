@@ -4,7 +4,7 @@ window.onload = function() {
 
 var check_afk = function() {
     var lastTimeEvent;
-    window.onload = resetAfkTimer();
+    //window.onload = resetAfkTimer();
     document.onmousemove = resetAfkTimer();
     document.onmousedown = resetAfkTimer();
     document.ontouchstart = resetAfkTimer();
