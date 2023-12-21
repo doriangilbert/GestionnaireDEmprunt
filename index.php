@@ -15,7 +15,7 @@
     <div class="d-flex justify-content-center align-items-center h-100 flex-column">
         <h1>Gestionnaire d'emprunts</h1>
         <p class="text-center mb-5">Bienvenue sur le gestionnaire d'emprunts</p>
-        <a href="login.html" class="btn btn-primary p-4 fw-bold">Commencer</a>
+        <a href="login.php" class="btn btn-primary p-4 fw-bold">Commencer</a>
     </div>
 
     <footer class="fixed-bottom">
