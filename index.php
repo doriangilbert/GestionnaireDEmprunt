@@ -27,3 +27,7 @@
 </body>
 
 </html>
+
+<?php
+
+include ('main/view/navbar.php');
