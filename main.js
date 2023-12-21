@@ -1,5 +1,5 @@
-var intervalId = window.setInterval(check_afk,1000);
-
+//var intervalId = window.setInterval(check_afk,1000);
+window.onload(check_afk())
 var check_afk = function() {
     var lastTimeEvent;
     //window.onload = resetAfkTimer();
