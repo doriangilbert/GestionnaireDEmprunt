@@ -41,7 +41,7 @@
                 <label for="inputAdministrateur" class="form-label col m-0">Administrateur ?</label>
                 <input type="checkbox" class="form-check col" id="inputAdministrateur">
             </div>
-            <button type="submit" class="btn btn-primary w-100 mt-4">Se connecter</button>
+            <button type="submit" class="btn btn-primary w-100 mt-4">Valider</button>
         </form>
     </div>
 
