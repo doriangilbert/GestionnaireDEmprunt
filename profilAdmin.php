@@ -17,6 +17,7 @@
             <a href="profilAdmin.html" class="btn btn-primary m-5 p-4">Gérer les utilisateurs</a>
             <a href="profilAdmin.html" class="btn btn-primary m-5 p-4">Gérer les matériels</a>
         </div>
+        <a href="index.php" class="btn btn-primary m-5 p-4">Se déconnecter</a>
     </div>
 
     <footer class="fixed-bottom">
