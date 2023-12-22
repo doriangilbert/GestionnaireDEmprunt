@@ -15,8 +15,9 @@
     <h1 class="mb-5">Profil administrateur</h1>
     <h3 class="mb-5">Matricule : XXXXX</h3>
     <div class="d-flex">
-        <a href="profilAdmin.php" class="btn btn-primary m-5 p-4">Gérer les utilisateurs</a>
-        <a href="profilAdmin.php" class="btn btn-primary m-5 p-4">Gérer les matériels</a>
+        <a href="consultationUtilisateursAdmin.php" class="btn btn-primary m-5 p-4">Gérer les utilisateurs</a>
+        <a href="consultationMaterielsAdmin.php" class="btn btn-primary m-5 p-4">Gérer les matériels</a>
+        <a href="consultationEmpruntsAdmin.php" class="btn btn-primary m-5 p-4">Gérer les emprunts</a>
     </div>
     <a href="index.php" class="btn btn-primary m-5 p-4">Se déconnecter</a>
 </div>
