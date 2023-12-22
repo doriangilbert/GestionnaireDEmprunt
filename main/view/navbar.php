@@ -80,14 +80,10 @@
                         <a class="nav-link" href="#">Membres</a>
                     </li>
                 </ul>
-
-
             </div>
             <div class="navbar-item-custom">
-                <a href="#">Connexion</a> | <a href="#">S'inscrire</a>
-
+                <a href="../../login.php">Connexion</a> | <a href="#">null</a>
             </div>
-
         </div>
     </nav>
 </header>
