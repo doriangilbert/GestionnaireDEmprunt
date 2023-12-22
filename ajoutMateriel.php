@@ -10,6 +10,7 @@
 </head>
 
 <body class="h-100 text-black">
+<?php include('main/view/navbar.php'); ?>
 <div class="d-flex justify-content-center align-items-center h-100 flex-column">
     <h1 class="mb-5">Ajouter un matériel</h1>
     <form>
