@@ -1,3 +1,7 @@
+<?php
+include ('main/view/navbar.php');
+?>
+
 <!DOCTYPE html>
 <html lang="fr" class="h-100">
 
