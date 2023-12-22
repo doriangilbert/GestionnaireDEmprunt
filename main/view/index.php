@@ -6,10 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GestionnaireDEmprunt</title>
-
-
     <link rel="stylesheet" href="../../ressources/styles/style.css">
     <link href="../../ressources/styles/bootstrap.min.css" rel="stylesheet">
+    <script src="../controller/main.js"></script>
 </head>
 
 <body class="h-100 text-black">
@@ -22,9 +21,8 @@
     <a href="index.php" class="btn btn-primary border-white p-4 fw-bold">Commencer</a>
 </div>
 
-<?php include('footer.php')?>
+<?php include('footer.php') ?>
 
 </body>
-
 
 </html>

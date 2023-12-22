@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GestionnaireDEmprunt</title>
-    <link rel="stylesheet" href="ressources/styles/style.css">
-    <link href="ressources/styles/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../ressources/styles/style.css">
+    <link href="../../ressources/styles/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body class="h-100 text-black">

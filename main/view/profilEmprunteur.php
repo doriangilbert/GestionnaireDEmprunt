@@ -1,7 +1,3 @@
-<!-- GestionnaireDEmprunt -->
-<?php
-include ('main/view/navbar.php');
-?>
 <!DOCTYPE html>
 <html lang="fr" class="h-100">
 
@@ -9,17 +5,18 @@ include ('main/view/navbar.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GestionnaireDEmprunt</title>
-    <link rel="stylesheet" href="ressources/styles/style.css">
-    <link href="ressources/styles/bootstrap.min.css" rel="stylesheet">
-    <script src="main.js"></script>
+    <link rel="stylesheet" href="../../ressources/styles/style.css">
+    <link href="../../ressources/styles/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body class="h-100 text-black">
 <?php include('main/view/navbar.php'); ?>
 <div class="d-flex justify-content-center align-items-center h-100 flex-column">
-    <h1>Gestionnaire d'emprunts</h1>
-    <p class="text-center mb-5">Bienvenue sur le gestionnaire d'emprunts</p>
-    <a href="login.php" class="btn btn-primary p-4 fw-bold">Commencer</a>
+    <h1 class="mb-5">Profil emprunteur</h1>
+    <h3 class="mb-5">Matricule : XXXXX</h3>
+    <a href="consultationEmprunts.php" class="btn btn-primary m-5 p-4">Consulter vos emprunts en cours</a>
+    <a href="consultationMateriels.php" class="btn btn-primary m-5 p-4">Faire un nouvel emprunt de matériel</a>
+    <a href="index.php" class="btn btn-primary m-5 p-4">Se déconnecter</a>
 </div>
 
 <footer class="fixed-bottom">

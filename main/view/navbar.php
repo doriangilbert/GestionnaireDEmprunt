@@ -68,7 +68,7 @@ session_start();
                 </ul>
             </div>
             <div class="navbar-item-custom">
-                <a href="../../login.php">Connexion</a> | <a href="#">null</a>
+                <a href="login.php">Connexion</a> | <a href="#">null</a>
             </div>
         </div>
     </nav>
