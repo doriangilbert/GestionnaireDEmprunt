@@ -1,0 +1,27 @@
+.custom-table * {
+  word-wrap: break-word;
+  vertical-align: center;
+}
+
+.custom-table .row * {
+  padding: 0.25rem;
+}
+
+.custom-table .row:first-child {
+  background: #888888;
+}
+
+.custom-table a {
+  border-bottom: black solid 1px;
+  background: #aaaaaa;
+  cursor: pointer;
+}
+
+.custom-table a {
+  text-decoration: none;
+  color: black;
+}
+
+.custom-table a:hover {
+  background: #bbbbbb;
+}
