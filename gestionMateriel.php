@@ -35,7 +35,6 @@
             <label for="inputPhoto" class="form-label col m-0">Photo :</label>
             <input type="file" class="form-control col" id="inputPhoto" accept=".png, .jpg, .jpeg, .svg">
         </div>
-        <!-- TODO -->
         <button type="submit" class="btn btn-primary w-100 mt-4">Valider</button>
     </form>
     <div>
