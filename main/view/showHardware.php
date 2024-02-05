@@ -21,17 +21,34 @@
             <th scope="col">Nom</th>
             <th scope="col">Version</th>
             <th scope="col">Statut</th>
+            <th scope="col">Edition</th>
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>TestNom</td>
-            <td>Version 1</td>
-            <td>Disponible</td>
-        </tr>
+            <?php 
+            include "bd_conn.php";
+            global $conn;
+            $req = "SELECT * FROM materiel";
+            $resultat = $conn->query($req);
+
+            while($row= $resultat->fetch_assoc())
+            {
+            echo'<tr>
+                <th scope="row">' .$row["Reference"]. '</th>
+                <td>' .$row["Nom"]. '</td>
+                <td>' .$row["Version"]. '</td>
+                <td>Disponible</td>
+                <td>
+                    <a class="btn btn-info btn-sm" href="update">Update</a>
+                    <a class="btn btn-danger btn-sm" href="delete">Delete</a>
+                </td>
+                </tr>';
+            }
+        
+            ?>
         </tbody>
     </table>
+    <!--
     <div class="custom-table">
         <div class="row custom-table-head">
             <div class="col-3 ps-3 h-100"><h3 class="h5 mb-0 fw-bold">Référence</h3></div>
@@ -51,7 +68,7 @@
             <div class="col-3 ps-3"><p class="mb-0">euuuuh</p></div>
             <div class="col-3 ps-3"><p class="mb-0">Statut</p></div>
         </a>
-    </div>
+    </div>-->
 </div>
 <?php include('footer.php') ?>
 </body>
