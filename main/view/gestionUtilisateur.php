@@ -10,7 +10,9 @@
 </head>
 
 <body class="h-100 text-black">
-<?php include('main/view/navbar.php'); ?>
+
+<?php include('navbar.php'); ?>
+
 <div class="d-flex justify-content-center align-items-center h-100 flex-column">
     <h1 class="mb-5">Gestion de l'utilisateur</h1>
     <h3 class="mb-5">Matricule : XXXXX</h3>
@@ -49,12 +51,8 @@
     </form>
 </div>
 
-<footer class="fixed-bottom">
-    <div class="row bg-primary text-white">
-        <span class="col-4"></span>
-        <p class="col-4 text-center mb-1 mt-1">GestionnaireDEmprunt</p>
-    </div>
-</footer>
+<?php include('footer.php'); ?>
+
 </body>
 
 </html>
