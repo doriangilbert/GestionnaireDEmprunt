@@ -19,15 +19,15 @@
     <form>
         <div class="row mb-3 align-items-center">
             <label for="inputNom" class="form-label col m-0">Nom :</label>
-            <input type="text" class="form-control col" id="inputNom" placeholder="Samsung S10">
+            <input type="text" class="form-control col" id="inputNom" placeholder="Samsung S10" maxlength="30" required>
         </div>
         <div class="row mb-3 align-items-center">
             <label for="inputVersion" class="form-label col m-0">Version :</label>
-            <input type="text" class="form-control col" id="inputVersion" placeholder="8.0">
+            <input type="text" class="form-control col" id="inputVersion" placeholder="8.0" minlength="3" maxlength="15" required>
         </div>
         <div class="row mb-3 align-items-center">
             <label for="inputReference" class="form-label col m-0">Référence :</label>
-            <input type="text" class="form-control col" id="inputReference" placeholder="AN">
+            <input type="text" class="form-control col" id="inputReference" placeholder="AN001" maxlength="5" required>
         </div>
         <div class="row mb-3 align-items-center">
             <label for="inputNumTel" class="form-label col m-0">Numéro de téléphone :</label>

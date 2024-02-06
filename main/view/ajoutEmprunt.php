@@ -22,11 +22,11 @@
     <form class="mt-3">
         <div class="row mb-3 align-items-center">
             <label for="inputDateDebut" class="form-label col m-0">Date de début de l'emprunt :</label>
-            <input type="date" class="form-control col" id="inputDateDebut">
+            <input type="date" class="form-control col" id="inputDateDebut" required>
         </div>
         <div class="row mb-3 align-items-center">
             <label for="inputDateFin" class="form-label col m-0">Date de début de l'emprunt :</label>
-            <input type="date" class="form-control col" id="inputDateFin">
+            <input type="date" class="form-control col" id="inputDateFin" required>
         </div>
         <button type="submit" class="btn btn-primary w-100 mt-4">Valider</button>
     </form>

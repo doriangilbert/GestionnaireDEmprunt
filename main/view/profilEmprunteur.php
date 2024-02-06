@@ -15,7 +15,7 @@
 
 <div class="d-flex justify-content-center align-items-center h-100 flex-column">
     <h1 class="mb-5">Profil emprunteur</h1>
-    <h3 class="mb-5">Matricule : XXXXX</h3>
+    <h3 class="mb-5">Matricule : XXXXXXX</h3>
     <a href="consultationEmprunts.php" class="btn btn-primary m-5 p-4">Consulter vos emprunts en cours</a>
     <a href="consultationMateriels.php" class="btn btn-primary m-5 p-4">Faire un nouvel emprunt de matériel</a>
     <a href="index.php" class="btn btn-primary m-5 p-4">Se déconnecter</a>

@@ -18,11 +18,11 @@
     <form action="loginform.php" method="post">
         <div class="mb-3">
             <label for="inputIdentifiant" class="form-label">Identifiant</label>
-            <input type="text" class="form-control w-100" id="inputIdentifiant">
+            <input type="text" class="form-control w-100" id="inputIdentifiant" required>
         </div>
         <div class="mb-3">
             <label for="inputMotDePasse" class="form-label">Mot de passe</label>
-            <input type="password" class="form-control" id="inputMotDePasse">
+            <input type="password" class="form-control" id="inputMotDePasse" required>
         </div>
         <button type="submit" class="btn btn-primary w-100 mt-4">Se connecter</button>
     </form>
