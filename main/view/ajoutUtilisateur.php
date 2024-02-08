@@ -31,11 +31,11 @@
         </div>
         <div class="row mb-3 align-items-center">
             <label for="inputMatricule" class="form-label col m-0">Matricule :</label>
-            <input type="text" class="form-control col" id="inputMatricule" placeholder="XXXXXXX" minlength="7" maxlength="7" required>
+            <input type="text" class="form-control col" id="inputMatricule" placeholder="XXXXXXX" minlength="7" maxlength="7" pattern="[0-9]{7}" required>
         </div>
         <div class="row mb-3 align-items-center">
             <label for="inputNumTel" class="form-label col m-0">Numéro de téléphone :</label>
-            <input type="text" class="form-control col" id="inputNumTel" placeholder="XXXXXXXXXX">
+            <input type="text" class="form-control col" id="inputNumTel" placeholder="XXXXXXXXXX" minlength="10" maxlength="10" pattern="^0[1-9]([-. ]?[0-9]{2}){4}$">
         </div>
         <div class="row mb-3 align-items-center">
             <label for="inputMotDePasse" class="form-label col m-0">Mot de passe :</label>
