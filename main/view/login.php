@@ -1,4 +1,5 @@
-<?php include('navbar.php') ?>
+<?php include('navbar.php')
+?>
 
 <!DOCTYPE html>
 <html lang="fr" class="h-100">
@@ -17,14 +18,14 @@
 
 <div class="d-flex justify-content-center align-items-center h-100 flex-column">
     <h1 class="mb-5">Connexion</h1>
-    <form action="loginform.php" method="post">
+    <form method="POST" action="loginform.php">
         <div class="mb-3">
             <label for="inputIdentifiant" class="form-label">Identifiant</label>
-            <input type="text" class="form-control w-100" id="inputIdentifiant" required>
+            <input type="text" class="form-control w-100" id="inputIdentifiant" name="inputIdentifiant" required>
         </div>
         <div class="mb-3">
             <label for="inputMotDePasse" class="form-label">Mot de passe</label>
-            <input type="password" class="form-control" id="inputMotDePasse" required>
+            <input type="password" class="form-control" id="inputMotDePasse" name="inputMotDePasse" required>
         </div>
         <button type="submit" class="btn btn-primary w-100 mt-4">Se connecter</button>
     </form>

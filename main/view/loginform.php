@@ -1,10 +1,11 @@
 <?php
+session_start();
 
 if (isset($_POST['inputIdentifiant']) && isset($_POST['inputMotDePasse'])) {
 
-        session_start();
+        include("bd_conn.php");
+        echo "NON";
 
-        include "bd_conn.php";
 
         function validate($data){
 
@@ -15,12 +16,11 @@ if (isset($_POST['inputIdentifiant']) && isset($_POST['inputMotDePasse'])) {
 
         }
 
-        $identifiant = validate($_POST['username']);
-        $motdepasse = validate($_POST['password']);
+        $identifiant = validate($_POST['inputIdentifiant']);
+        $motdepasse = validate($_POST['inputMotDePasse']);
 
 
-        $sql = "SELECT email,password,Admin FROM users WHERE email='$identifiant' AND password='$motdepasse'";
-
+        $sql = "SELECT matricule,email,password,Admin FROM utilisateur WHERE email='$identifiant' AND password='$motdepasse'";
         $result = mysqli_query($conn, $sql);
 
         if (mysqli_num_rows($result) === 1) {
@@ -31,6 +31,7 @@ if (isset($_POST['inputIdentifiant']) && isset($_POST['inputMotDePasse'])) {
 
                 echo "Logged in!";
 
+                $_SESSION['matricule'] = $row['matricule'];
                 $_SESSION['email'] = $row['email'];
 
                 $_SESSION['motdepasse'] = $row['password'];
@@ -44,22 +45,23 @@ if (isset($_POST['inputIdentifiant']) && isset($_POST['inputMotDePasse'])) {
                     header("Location:profilEmprunteur.php");
                 }
 
-                exit();
-
             }
             else{
+                    echo "non";
                     header("Location:login.php");
                     exit();
             }
 
         }
         else{
-            header("Location:login.php");
+            echo "NON";
+            header("Location: login.php");
             exit();
         }
 
 }
     else {
-        header("Location:login.php");
+        header("Location: login.php");
         exit();
     }
+
