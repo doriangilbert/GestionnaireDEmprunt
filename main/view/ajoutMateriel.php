@@ -1,4 +1,4 @@
-<?php include('navbar.php'); ?>
+<?php include('navbar.php') ?>
 <!DOCTYPE html>
 <html lang="fr" class="h-100">
 
@@ -15,32 +15,44 @@
 
 <div class="d-flex justify-content-center align-items-center h-100 flex-column">
     <h1 class="mb-5">Ajouter un matériel</h1>
-    <form>
+    <form method="post" action="">
         <div class="row mb-3 align-items-center">
             <label for="inputNom" class="form-label col m-0">Nom :</label>
-            <input type="text" class="form-control col" id="inputNom" placeholder="Samsung S10" maxlength="30" required>
+            <input type="text" class="form-control col" id="inputNom" name="inputNom" placeholder="Samsung S10" maxlength="30" required>
         </div>
         <div class="row mb-3 align-items-center">
             <label for="inputVersion" class="form-label col m-0">Version :</label>
-            <input type="text" class="form-control col" id="inputVersion" placeholder="8.0" minlength="3" maxlength="15" required>
+            <input type="text" class="form-control col" id="inputVersion" name="inputVersion" placeholder="8.0" minlength="3" maxlength="15" required>
         </div>
         <div class="row mb-3 align-items-center">
             <label for="inputReference" class="form-label col m-0">Référence :</label>
-            <input type="text" class="form-control col" id="inputReference" placeholder="AN001" maxlength="5" required>
+            <input type="text" class="form-control col" id="inputReference" name="inputReference" placeholder="AN001" maxlength="5" required>
         </div>
         <div class="row mb-3 align-items-center">
             <label for="inputNumTel" class="form-label col m-0">Numéro de téléphone :</label>
-            <input type="text" class="form-control col" id="inputNumTel" placeholder="XXXXXXXXXX">
+            <input type="text" class="form-control col" id="inputNumTel" name="inputNumTel" placeholder="XXXXXXXXXX">
         </div>
         <div class="row mb-3 align-items-center">
             <label for="inputPhoto" class="form-label col m-0">Photo :</label>
-            <input type="file" class="form-control col" id="inputPhoto" accept=".png, .jpg, .jpeg, .svg">
+            <input type="file" class="form-control col" id="inputPhoto" name="inputPhoto" accept=".png, .jpg, .jpeg, .svg">
         </div>
         <button type="submit" class="btn btn-primary w-100 mt-4">Valider</button>
     </form>
 </div>
 
-<?php include('footer.php'); ?>
+<?php
+if(isset($_POST['inputNom']) && isset($_POST['inputVersion']) && isset($_POST['inputReference']) && isset($_POST['inputNumTel']) && isset($_POST['inputPhoto'])){
+    include("bd_conn.php");
+    $Reference = $_POST['inputReference'];
+    $Nom = $_POST['inputNom'];
+    $Version = $_POST['inputVersion'];
+    $Photo = $_POST['inputPhoto'];
+
+    $sql = "INSERT INTO materiel(Reference,Nom,Version) VALUES ('$Reference','$Nom','$Version')";
+    mysqli_query($conn,$sql);
+    echo "Votre Matériel est ajouté";
+}
+ include('footer.php'); ?>
 
 </body>
 

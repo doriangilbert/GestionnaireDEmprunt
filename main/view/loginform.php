@@ -4,9 +4,6 @@ session_start();
 if (isset($_POST['inputIdentifiant']) && isset($_POST['inputMotDePasse'])) {
 
         include("bd_conn.php");
-        echo "NON";
-
-
         function validate($data){
 
             $data = trim($data);
@@ -38,7 +35,7 @@ if (isset($_POST['inputIdentifiant']) && isset($_POST['inputMotDePasse'])) {
 
                 $_SESSION['isAdmin'] = $row['Admin'];
 
-                if ($_SESSION['isAdmin'] === 1){
+                if ($_SESSION['isAdmin'] == 1){
                     header("Location:profilAdmin.php");
                 }
                 else{

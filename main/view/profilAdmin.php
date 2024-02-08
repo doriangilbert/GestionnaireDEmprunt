@@ -20,7 +20,7 @@
     <h3 class="mb-5">Matricule : <?php echo $_SESSION['matricule']; ?></h3>
     <div class="d-flex">
         <a href="consultationUtilisateursAdmin.php" class="btn btn-primary m-5 p-4">Gérer les utilisateurs</a>
-        <a href="consultationMaterielsAdmin.php" class="btn btn-primary m-5 p-4">Gérer les matériels</a>
+        <a href="showHardware.php" class="btn btn-primary m-5 p-4">Gérer les matériels</a>
         <a href="consultationEmpruntsAdmin.php" class="btn btn-primary m-5 p-4">Gérer les emprunts</a>
     </div>
     <a href="index.php" class="btn btn-primary m-5 p-4">Se déconnecter</a>
