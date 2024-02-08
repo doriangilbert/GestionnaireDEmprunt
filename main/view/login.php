@@ -1,3 +1,5 @@
+<?php include('navbar.php') ?>
+
 <!DOCTYPE html>
 <html lang="fr" class="h-100">
 
@@ -11,7 +13,7 @@
 
 <body class="h-100 text-black">
 
-<?php include('navbar.php') ?>
+
 
 <div class="d-flex justify-content-center align-items-center h-100 flex-column">
     <h1 class="mb-5">Connexion</h1>
