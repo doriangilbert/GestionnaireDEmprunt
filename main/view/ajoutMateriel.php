@@ -29,6 +29,7 @@
                 <option value="1">Ordinateur</option>
                 <option value="2">Téléphone Android</option>
                 <option value="3">Téléphone Apple</option>
+                <option value="2">Téléphone (autre)</option>
                 <option value="4">Tablette Android</option>
                 <option value="5">Tablette Apple</option>
             </select>
@@ -39,7 +40,7 @@
         </div>
         <div class="row mb-3 align-items-center">
             <label for="inputNumTel" class="form-label col m-0">Numéro de téléphone :</label>
-            <input type="tel" class="form-control col" id="inputNumTel" name="inputNumTel" placeholder="XXXXXXXXXX" minlength="10" maxlength="10" pattern="[0-9]{10}">
+            <input type="tel" class="form-control col" id="inputNumTel" name="inputNumTel" placeholder="XXXXXXXXXX" minlength="10" maxlength="10" pattern="^0[1-9]([-. ]?[0-9]{2}){4}$">
         </div>
         <div class="row mb-3 align-items-center">
             <label for="inputPhoto" class="form-label col m-0">Photo :</label>
