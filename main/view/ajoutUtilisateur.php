@@ -45,9 +45,7 @@
             <label for="inputAdministrateur" class="form-label col m-0">Administrateur ?</label>
             <input type="checkbox" class="form-check col" id="inputAdministrateur">
         </div>
-        <button type="submit" class="btn btn-primary w-100 mt-4">Valider</button>
-    </form>
-</div>
+        <h3 style="color=blue;">
 <?php
 if(isset($_POST['inputNom'])){
 include("bd_conn.php");
@@ -70,7 +68,14 @@ $sqlUti = "INSERT INTO utilisateur(Matricule,Nom,Prenom,Admin,Email,Password,Id_
 mysqli_query($conn,$sqlUti);
 echo "Votre Utilistateur est ajouté";
 }
-include('footer.php'); ?>
+?> </h3>
+
+        <button type="submit" class="btn btn-primary w-100 mt-4">Valider</button>
+    </form>
+
+</div>
+
+<php? include('footer.php'); ?>
 
 </body>
 
