@@ -1,7 +1,8 @@
 <?php include('navbar.php'); 
 
-include "bd_conn.php";
-global $conn;
+require_once("../entity/BD_Link.php");
+
+
 
 $Reference="";
 $Nom="";
@@ -13,19 +14,19 @@ if($_SERVER['REQUEST_METHOD'] == 'GET')
 {
     if(!isset($_GET["ref"]))
     {
-        header("location: showHardware.php");
+        header("location: ../view/showHardware.php");
         exit;
     }
 
     $Reference=$_GET["ref"];
 
     $sql="SELECT * FROM materiel WHERE Reference=$Reference";
-    $result = $conn->query($sql);
+    $result = BD_Link::connexion()->query($sql);
     $row= $result->fetch_assoc();
 
     if(!$row)
     {
-        header("location: showHardware.php");
+        header("location: ../view/showHardware.php");
         exit;
     }
 
@@ -42,7 +43,7 @@ else{
 
     $sql = "UPDATE materiel SET Nom='$Nom', `Version`='$Version' WHERE Reference= $Reference";
 
-    $result = $conn->query($sql);
+    $result = BD_Link::connexion()->query($sql);
 
 
     $successMessage = "Votre matériel a bien été modifié";
@@ -104,10 +105,10 @@ else{
         }
         ?>
         <button type="submit" class="btn btn-primary w-100 mt-4">Valider</button>
-        <a href="<?php echo "delete.php?ref=$Reference"?>" class="btn btn-primary w-100 mt-4">Supprimer le matériel</a>
+        <a href="<?php echo "../controller/delete.php?ref=$Reference"?>" class="btn btn-primary w-100 mt-4">Supprimer le matériel</a>
     </form>
     <div>
-        <a href="profilAdmin.php" class="btn btn-primary w-100 mt-4">Annuler</a>
+        <a href="../view/profilAdmin.php" class="btn btn-primary w-100 mt-4">Annuler</a>
     </div>
     <form>
         

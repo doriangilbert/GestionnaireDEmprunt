@@ -7,15 +7,14 @@ if (isset($_GET["ref"]))
 {
 
     $Reference=$_GET["ref"];
-    include "bd_conn.php";
-    global $conn;
+    require_once("../entity/BD_Link.php");
 
     $sql= "DELETE FROM materiel WHERE Reference=$Reference";
-    $conn->query($sql);
+    BD_Link::connexion()->query($sql);
 
 
 
 }
 
-header("location: showHardware.php");
+header("location: ../view/showHardware.php");
 exit;

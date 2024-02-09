@@ -5,8 +5,8 @@ class BD_Link
     private static $conn;
     private static $servername = "localhost";
     private static $username = "root";
-    private static $password = "root";
-    private static $db_name= "db_gestemprunt";
+    private static $password = "";
+    private static $db_name= "defdb";
 
     public static function connexion() {
         if(!self::$conn)

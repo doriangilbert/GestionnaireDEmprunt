@@ -27,10 +27,10 @@
         </thead>
         <tbody>
             <?php 
-            include "bd_conn.php";
-            global $conn;
+            require_once("../entity/BD_Link.php");
+            
             $req = "SELECT * FROM materiel";
-            $resultat = $conn->query($req);
+            $resultat = BD_Link::connexion()->query($req);
 
             while($row= $resultat->fetch_assoc())
             {
