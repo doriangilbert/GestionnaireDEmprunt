@@ -1,4 +1,5 @@
-<?php include('navbar.php'); ?>
+<?php include('../view/navbar.php'); ?>
+
 <!DOCTYPE html>
 <html lang="fr" class="h-100">
 
@@ -11,8 +12,6 @@
 </head>
 
 <body class="h-100 text-black">
-
-
 
 <div class="d-flex justify-content-center align-items-center h-100 flex-column">
     <h1 class="mb-5">Ajouter un utilisateur</h1>
@@ -50,8 +49,18 @@
 
 </div>
 
-<?php include('footer.php'); ?>
+<?php include('../view/footer.php'); ?>
 
 </body>
 
 </html>
+
+<?php
+
+if(isset($_SESSION['alert_message'])){
+    $alert_message = $_SESSION['alert_message'];
+    echo "<script>alert('$alert_message')</script>";
+    unset($_SESSION['alert_message']);
+}
+
+?>

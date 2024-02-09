@@ -16,6 +16,8 @@ if ($admin == "on") {
 }
 $utilisateur = new Utilisateur($matricule, $nom, $prenom, $email, $password, $numTel, $admin);
 
+$_SESSION['alert_message'] = "Utilisateur ajouté avec succès";
+
 header('Location: ../view/ajoutUtilisateur.php');
 
 ?>
