@@ -52,7 +52,7 @@ CREATE TABLE Utilisateur(
    Avatar BLOB,
    Admin BOOLEAN NOT NULL,
    Email VARCHAR(50)  NOT NULL,
-   Password VARBINARY(64)  NOT NULL,
+   Password VARCHAR(50)  NOT NULL,
    Id_Numero_Telephone INT,
    PRIMARY KEY(Matricule),
    UNIQUE(Id_Numero_Telephone),
