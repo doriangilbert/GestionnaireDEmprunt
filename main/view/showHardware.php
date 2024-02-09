@@ -34,16 +34,15 @@
 
             while($row= $resultat->fetch_assoc())
             {
-            echo'<tr>
-                <th scope="row">' .$row["Reference"]. '</th>
-                <td>' .$row["Nom"]. '</td>
-                <td>' .$row["Version"]. '</td>
+            echo"<tr>
+                <th scope='row'>$row[Reference]</th>
+                <td>$row[Nom]</td>
+                <td>$row[Version]</td>
                 <td>Disponible</td>
                 <td>
-                    <a class="btn btn-info btn-sm" href="update">Update</a>
-                    <a class="btn btn-danger btn-sm" href="delete">Delete</a>
+                    <a class='btn btn-info btn-sm' href='gestionMateriel.php?ref=$row[Reference]'>Edit</a>
                 </td>
-                </tr>';
+                </tr>";
             }
         
             ?>
