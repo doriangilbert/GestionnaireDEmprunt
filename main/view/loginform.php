@@ -3,7 +3,7 @@ session_start();
 
 if (isset($_POST['inputIdentifiant']) && isset($_POST['inputMotDePasse'])) {
 
-        include("bd_conn.php");
+        require_once("../entity/BD_Link.php");
         function validate($data){
 
             $data = trim($data);
@@ -18,7 +18,7 @@ if (isset($_POST['inputIdentifiant']) && isset($_POST['inputMotDePasse'])) {
 
 
         $sql = "SELECT matricule,email,password,Admin FROM utilisateur WHERE email='$identifiant' AND password='$motdepasse'";
-        $result = mysqli_query($conn, $sql);
+        $result = mysqli_query(BD_Link::connexion(), $sql);
 
         if (mysqli_num_rows($result) === 1) {
 
@@ -44,14 +44,12 @@ if (isset($_POST['inputIdentifiant']) && isset($_POST['inputMotDePasse'])) {
 
             }
             else{
-                    echo "non";
                     header("Location:login.php");
                     exit();
             }
 
         }
         else{
-            echo "NON";
             header("Location: login.php");
             exit();
         }
