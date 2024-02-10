@@ -65,6 +65,10 @@ $users = $controller->getAllUser();
     </table>
 </div>
 
+<div class="d-flex justify-content-center align-items-center h-100 flex-column">
+    <a href="../view/ajoutUtilisateur.php" class="btn btn-primary m-5 p-4">Ajouter un utilisateur</a>
+</div>
+
 <?php include('../view/footer.php') ?>
 
 </body>
