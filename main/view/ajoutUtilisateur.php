@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GestionnaireDEmprunt</title>
+    <title>Ajout Utilisateur - GestionnaireDEmprunt</title>
     <link rel="stylesheet" href="../../ressources/styles/style.css">
     <link href="../../ressources/styles/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -57,7 +57,7 @@
 
 <?php
 
-if(isset($_SESSION['alert_message'])){
+if (isset($_SESSION['alert_message'])) {
     $alert_message = $_SESSION['alert_message'];
     echo "<script>alert('$alert_message')</script>";
     unset($_SESSION['alert_message']);

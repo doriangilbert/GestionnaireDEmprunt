@@ -1,13 +1,17 @@
-<?php include('navbar.php');
+<?php include('../view/navbar.php');
+
 if (!isset($_SESSION))
-    session_start();?>
+    session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emprunt | Ajout d'équipement</title>
+    <title>Matériels - GestionnaireDEmprunt</title>
     <link rel="stylesheet" href="../../ressources/styles/style.css">
     <link href="../../ressources/styles/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../ressources/styles/table.css">
@@ -110,7 +114,9 @@ if (!isset($_SESSION))
         </a>
     </div>-->
 </div>
-<?php include('footer.php') ?>
+
+<?php include('../view/footer.php') ?>
+
 </body>
 
 </html>

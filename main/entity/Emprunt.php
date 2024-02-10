@@ -2,6 +2,7 @@
 
 session_start();
 require_once("../entity/BD_Link.php");
+
 class Emprunt
 {
     private $reference;
@@ -15,7 +16,7 @@ class Emprunt
         $this->dateDebut = $dateDebut;
         $this->dateFin = $dateFin;
         $this->matricule = $matricule;
-        mysqli_query(BD_Link::connexion(), "INSERT INTO emprunte (reference, date_debut, date_de_fin, matricule) VALUES ('$this->reference', '$this->dateDebut', '$this->dateFin', '$this->matricule')");
+        mysqli_query(BD_Link::connexion(), "INSERT INTO emprunte (reference, date_debut, date_de_fin, matricule) VALUES ('$this->reference', '$this->dateDebut', '$this->dateFin', '$this->matricule')") or die("Erreur BD : Insert emprunt");
     }
 }
 

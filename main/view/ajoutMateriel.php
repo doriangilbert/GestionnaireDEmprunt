@@ -1,14 +1,17 @@
-<?php include('navbar.php');
+<?php include('../view/navbar.php');
+
 if (!isset($_SESSION))
     session_start();
+
 ?>
+
 <!DOCTYPE html>
 <html lang="fr" class="h-100">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GestionnaireDEmprunt</title>
+    <title>Ajout Matériel - GestionnaireDEmprunt</title>
     <link rel="stylesheet" href="../../ressources/styles/style.css">
     <link href="../../ressources/styles/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -54,7 +57,8 @@ if (!isset($_SESSION))
 </div>
 
 <?php
-if(isset($_POST['inputNom']) && isset($_POST['inputVersion']) && isset($_POST['inputReference']) && isset($_POST['inputNumTel'])){
+
+if (isset($_POST['inputNom']) && isset($_POST['inputVersion']) && isset($_POST['inputReference']) && isset($_POST['inputNumTel'])) {
     require_once("../entity/BD_Link.php");
     $Reference = $_POST['inputReference'];
     $Nom = $_POST['inputNom'];
@@ -63,10 +67,12 @@ if(isset($_POST['inputNom']) && isset($_POST['inputVersion']) && isset($_POST['i
 
 
     $sql = "INSERT INTO materiel(Reference,Nom,Version) VALUES ('$Reference','$Nom','$Version')";
-    mysqli_query(BD_Link::connexion(),$sql);
+    mysqli_query(BD_Link::connexion(), $sql);
     echo "Votre Matériel est ajouté";
 }
- include('footer.php'); ?>
+include('../view/footer.php');
+
+?>
 
 </body>
 
@@ -74,7 +80,7 @@ if(isset($_POST['inputNom']) && isset($_POST['inputVersion']) && isset($_POST['i
 
 <?php
 
-if(isset($_SESSION['alert_message'])){
+if (isset($_SESSION['alert_message'])) {
     $alert_message = $_SESSION['alert_message'];
     echo "<script>alert('$alert_message')</script>";
     unset($_SESSION['alert_message']);

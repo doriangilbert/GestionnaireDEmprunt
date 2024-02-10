@@ -1,15 +1,17 @@
 <?php
+
 include('../view/navbar.php');
 
 if (!isset($_SESSION))
     session_start();
 if ($_SESSION["matricule"] != $_GET["matricule"])
     if ($_SESSION["isAdmin"] != 1)
-        header("Location:index.php");
+        header("Location: ../view/index.php");
 
-require_once ("../controller/userController.php");
+require_once("../controller/userController.php");
 $controller = new userController();
 $user = $controller->getById($_SESSION["matricule"])->fetch_assoc();
+
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +20,7 @@ $user = $controller->getById($_SESSION["matricule"])->fetch_assoc();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GestionnaireDEmprunt</title>
+    <title>Détail Utilisateur - GestionnaireDEmprunt</title>
     <link rel="stylesheet" href="../../ressources/styles/style.css">
     <link href="../../ressources/styles/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -46,7 +48,7 @@ $user = $controller->getById($_SESSION["matricule"])->fetch_assoc();
         </div>
         <div class="row mb-3 align-items-center">
             <label for="inputMotDePasse" class="form-label col m-0">Nouveau mot de passe :</label>
-            <input type="password" class="form-control col" id="inputMotDePasse" name="inputMotDePasse" placeholder="XXXXX" required >
+            <input type="password" class="form-control col" id="inputMotDePasse" name="inputMotDePasse" placeholder="XXXXX" required>
         </div>
         <?php
         if ($_SESSION["isAdmin"] == 1 && $_SESSION["matricule"] != $_GET["matricule"]) {

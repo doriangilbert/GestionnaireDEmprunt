@@ -1,13 +1,14 @@
-<?php include('navbar.php');
+<?php include('../view/navbar.php');
+
 if (!isset($_SESSION))
     session_start();
 if (isset($_SESSION["isAdmin"]))
-    if ($_SESSION["isAdmin"] == 1){
-    header("Location:profilAdmin.php");
-}
-else{
-    header("Location: profilEmprunteur.php");
-}
+    if ($_SESSION["isAdmin"] == 1) {
+        header("Location: ../view/profilAdmin.php");
+    } else {
+        header("Location: ../view/profilEmprunteur.php");
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -16,18 +17,16 @@ else{
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GestionnaireDEmprunt</title>
+    <title>Connexion - GestionnaireDEmprunt</title>
     <link rel="stylesheet" href="../../ressources/styles/style.css">
     <link href="../../ressources/styles/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body class="h-100 text-black">
 
-
-
 <div class="d-flex justify-content-center align-items-center h-100 flex-column">
     <h1 class="mb-5">Connexion</h1>
-    <form method="POST" action="loginform.php">
+    <form method="POST" action="../view/loginform.php">
         <div class="mb-3">
             <label for="inputIdentifiant" class="form-label">Identifiant</label>
             <input type="text" class="form-control w-100" id="inputIdentifiant" name="inputIdentifiant" required>
@@ -40,7 +39,7 @@ else{
     </form>
 </div>
 
-<?php include('footer.php') ?>
+<?php include('../view/footer.php') ?>
 
 </body>
 

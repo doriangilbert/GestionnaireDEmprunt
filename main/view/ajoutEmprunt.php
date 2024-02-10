@@ -1,15 +1,18 @@
 <?php include('../view/navbar.php');
+
 if (!isset($_SESSION))
     session_start();
 $_SESSION['reference'] = $_GET['ref'];
+
 ?>
+
 <!DOCTYPE html>
 <html lang="fr" class="h-100">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GestionnaireDEmprunt</title>
+    <title>Ajout Emprunt - GestionnaireDEmprunt</title>
     <link rel="stylesheet" href="../../ressources/styles/style.css">
     <link href="../../ressources/styles/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -41,7 +44,7 @@ $_SESSION['reference'] = $_GET['ref'];
         <button type="submit" class="btn btn-primary w-100 mt-4">Valider</button>
     </form>
     <div>
-        <a href="profilAdmin.php" class="btn btn-primary w-100 mt-4">Annuler</a>
+        <a href="../view/profilAdmin.php" class="btn btn-primary w-100 mt-4">Annuler</a>
     </div>
 </div>
 
@@ -53,7 +56,7 @@ $_SESSION['reference'] = $_GET['ref'];
 
 <?php
 
-if(isset($_SESSION['alert_message'])){
+if (isset($_SESSION['alert_message'])) {
     $alert_message = $_SESSION['alert_message'];
     echo "<script>alert('$alert_message')</script>";
     unset($_SESSION['alert_message']);
