@@ -7,9 +7,10 @@ if (isset($_POST['inputNom']) && isset($_POST['inputVersion']) && isset($_POST['
     $Nom = $_POST['inputNom'];
     $Version = $_POST['inputVersion'];
     $Type = $_POST['inputType'];
+    $Num = $_POST['inputNumTel'];
 
     try {
-        $materiel = new Materiel($Reference, $Nom, $Version, NULL, $Type, NULL);
+        $materiel = new Materiel($Reference, $Nom, $Version, NULL, $Type, $Num);
     } catch (Exception $e) {
         $_SESSION['alert_message'] = $e->getMessage();
         header('Location: ../view/ajoutMateriel.php');

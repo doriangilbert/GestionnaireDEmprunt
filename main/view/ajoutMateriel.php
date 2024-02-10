@@ -45,7 +45,16 @@ if (!isset($_SESSION))
         </div>
         <div class="row mb-3 align-items-center">
             <label for="inputNumTel" class="form-label col m-0">Numéro de téléphone :</label>
-            <input type="tel" class="form-control col" id="inputNumTel" name="inputNumTel" placeholder="XXXXXXXXXX" minlength="10" maxlength="10" pattern="^0[1-9]([-. ]?[0-9]{2}){4}$">
+            <input type="tel" class="form-control col" id="inputNumTel" name="inputNumTel" placeholder="XXXXXXXXXX" minlength="10" maxlength="10" pattern="^0[1-9]([-. ]?[0-9]{2}){4}$" disabled>
+            <script>
+                document.getElementById('inputType').addEventListener('change', function() {
+                    if (this.value != 2 && this.value != 3) {
+                        document.getElementById('inputNumTel').disabled = true;
+                    } else {
+                        document.getElementById('inputNumTel').disabled = false;
+                    }
+                });
+            </script>
         </div>
         <div class="row mb-3 align-items-center">
             <label for="inputPhoto" class="form-label col m-0">Photo :</label>

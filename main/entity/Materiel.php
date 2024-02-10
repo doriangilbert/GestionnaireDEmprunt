@@ -18,6 +18,7 @@ class Materiel
     private $ram_frequence;
     private $ram_memoire;
     private $type;
+    private $num;
 
     public function __construct()
     {
@@ -56,10 +57,6 @@ class Materiel
             throw new Exception("Référence déjà utilisée");
         }
 
-        /*mysqli_query(BD_Link::connexion(), "INSERT INTO numero_telephone (indicatif, numero) VALUES ('+33', '$numTel')") or die("Erreur BD : Insert numéro de téléphone");
-        $result = mysqli_query(BD_Link::connexion(), "SELECT id_numero_telephone FROM numero_telephone ORDER BY id_numero_telephone DESC LIMIT 1") or die("Erreur BD : Select numéro de téléphone");
-        $ligne_result = mysqli_fetch_assoc($result);
-        $idNumTel = $ligne_result['id_numero_telephone'];*/
         mysqli_query(BD_Link::connexion(), "INSERT INTO materiel(Reference, Nom, Photo, CPU_nombre_coeurs, CPU_frequence, Ecran_frequence, Ecran_taille, RAM_frequence, RAM_memoire, Stockage, `Version`) VALUES ('$reference','$nom','$photo','$cpu_nbr_coeur','$cpu_frequence','$ecran_frequence','$ecran_taille','$ram_frequence','$ram_memoire','$stockage','$version')") or die ("Erreur BD : Insert materiel");
     }
 
@@ -70,6 +67,7 @@ class Materiel
         $this->version = $version;
         $this->photo = $photo;
         $this->type = $type;
+        $this->num = $num;
 
         switch ($type) {
             case 1:
@@ -95,20 +93,21 @@ class Materiel
             throw new Exception("Référence déjà utilisée");
         }
 
-        /*mysqli_query(BD_Link::connexion(), "INSERT INTO numero_telephone (indicatif, numero) VALUES ('+33', '$numTel')") or die("Erreur BD : Insert numéro de téléphone");
+        mysqli_query(BD_Link::connexion(), "INSERT INTO numero_telephone (indicatif, numero) VALUES ('+33', '$num')") or die("Erreur BD : Insert numéro de téléphone");
         $result = mysqli_query(BD_Link::connexion(), "SELECT id_numero_telephone FROM numero_telephone ORDER BY id_numero_telephone DESC LIMIT 1") or die("Erreur BD : Select numéro de téléphone");
         $ligne_result = mysqli_fetch_assoc($result);
-        $idNumTel = $ligne_result['id_numero_telephone'];*/
+        $idNumTel = $ligne_result['id_numero_telephone'];
+
         mysqli_query(BD_Link::connexion(), "INSERT INTO materiel(Reference, Nom, Photo, CPU_nombre_coeurs, CPU_frequence, Ecran_frequence, Ecran_taille, RAM_frequence, RAM_memoire, Stockage, `Version`) VALUES ('$reference','$nom','$photo',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$version')") or die ("Erreur BD : Insert materiel");
         switch ($type) {
             case 1:
                 mysqli_query(BD_LINK::connexion(), "INSERT INTO ordinateur(Reference,GPU_memoire,GPU_frequence) VALUES ('$reference',NULL,NULL)") or die ("Erreur BD : Insert ordinateur");
                 break;
             case 2:
-                mysqli_query(BD_LINK::connexion(), "INSERT INTO telephone(Reference, Photo_MP,Id_Numero_Telephone) VALUES ('$reference', NULL, NULL)") or die ("Erreur BD: Insert telephone");
+                mysqli_query(BD_LINK::connexion(), "INSERT INTO telephone(Reference, Photo_MP,Id_Numero_Telephone) VALUES ('$reference', NULL, '$idNumTel')") or die ("Erreur BD: Insert telephone");
                 break;
             case 3:
-                mysqli_query(BD_LINK::connexion(), "INSERT INTO telephone(Reference, Photo_MP,Id_Numero_Telephone) VALUES ('$reference', NULL, NULL)") or die ("Erreur BD: Insert telephone");
+                mysqli_query(BD_LINK::connexion(), "INSERT INTO telephone(Reference, Photo_MP,Id_Numero_Telephone) VALUES ('$reference', NULL, '$idNumTel')") or die ("Erreur BD: Insert telephone");
                 break;
             case 4:
                 mysqli_query(BD_LINK::connexion(), "INSERT INTO tablette(Reference, Photo_MP) VALUES ('$reference', NULL)") or die ("Erreur BD: Insert tablette");
