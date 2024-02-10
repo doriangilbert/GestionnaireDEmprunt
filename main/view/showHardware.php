@@ -1,4 +1,5 @@
-<?php include('navbar.php') ?>
+<?php include('navbar.php');
+session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,11 +19,29 @@
     <table class="table table-hover table-responsive table-bordered border-black">
         <thead>
         <tr>
-            <th scope="col">Référence</th>
-            <th scope="col">Nom</th>
-            <th scope="col">Version</th>
-            <th scope="col">Statut</th>
-            <th scope="col">Edition</th>
+            <?php 
+            if ($_SESSION['isAdmin']==1)
+            {
+                echo "
+                <th scope='col'>Référence</th>
+                <th scope='col'>Nom</th>
+                <th scope='col'>Version</th>
+                <th scope='col'>Statut</th>
+                <th scope='col'>Edition</th>
+                ";
+            }
+            else
+            {
+                echo "
+                <th scope='col'>Référence</th>
+                <th scope='col'>Nom</th>
+                <th scope='col'>Version</th>
+                <th scope='col'>Statut</th>
+                <th scope='col'>Emprunt</th>
+                ";
+            }
+            ?>
+            
         </tr>
         </thead>
         <tbody>
@@ -34,15 +53,31 @@
 
             while($row= $resultat->fetch_assoc())
             {
-            echo"<tr>
-                <th scope='row'>$row[Reference]</th>
-                <td>$row[Nom]</td>
-                <td>$row[Version]</td>
-                <td>Disponible</td>
-                <td>
-                    <a class='btn btn-info btn-sm' href='gestionMateriel.php?ref=$row[Reference]'>Edit</a>
-                </td>
-                </tr>";
+            
+                if ($_SESSION['isAdmin']==1)
+                {
+                    echo"<tr>
+                        <th scope='row'>$row[Reference]</th>
+                        <td>$row[Nom]</td>
+                        <td>$row[Version]</td>
+                        <td>$_SESSION[isAdmin]</td>
+                        <td>
+                            <a class='btn btn-info btn-sm' href='gestionMateriel.php?ref=$row[Reference]'>Edit</a>
+                        </td>
+                        </tr>";
+                }
+                else
+                {
+                    echo"<tr>
+                        <th scope='row'>$row[Reference]</th>
+                        <td>$row[Nom]</td>
+                        <td>$row[Version]</td>
+                        <td>$_SESSION[isAdmin]</td>
+                        <td>
+                            <a class='btn btn-info btn-sm' href='ajoutEmprunt.php?ref=$row[Reference]'>Emprunter</a>
+                        </td>
+                        </tr>";
+                }
             }
         
             ?>

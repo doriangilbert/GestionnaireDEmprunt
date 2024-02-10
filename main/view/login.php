@@ -1,4 +1,5 @@
-<?php include('navbar.php')
+<?php include('navbar.php');
+session_start();
 ?>
 
 <!DOCTYPE html>

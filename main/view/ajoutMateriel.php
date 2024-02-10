@@ -1,4 +1,5 @@
-<?php include('navbar.php') ?>
+<?php include('navbar.php');
+session_start();?>
 <!DOCTYPE html>
 <html lang="fr" class="h-100">
 
@@ -14,7 +15,7 @@
 
 <div class="d-flex justify-content-center align-items-center h-100 flex-column">
     <h1 class="mb-5">Ajouter un matériel</h1>
-    <form method="post" action="">
+    <form method="post" action="../controller/ajoutMaterielController.php">
         <div class="row mb-3 align-items-center">
             <label for="inputNom" class="form-label col m-0">Nom :</label>
             <input type="text" class="form-control col" id="inputNom" name="inputNom" placeholder="Samsung S10" maxlength="30" required>
@@ -51,15 +52,16 @@
 </div>
 
 <?php
-if(isset($_POST['inputNom']) && isset($_POST['inputVersion']) && isset($_POST['inputReference']) && isset($_POST['inputNumTel']) && isset($_POST['inputPhoto'])){
-    include("bd_conn.php");
+if(isset($_POST['inputNom']) && isset($_POST['inputVersion']) && isset($_POST['inputReference']) && isset($_POST['inputNumTel'])){
+    require_once("../entity/BD_Link.php");
     $Reference = $_POST['inputReference'];
     $Nom = $_POST['inputNom'];
     $Version = $_POST['inputVersion'];
-    $Photo = $_POST['inputPhoto'];
+    $Type = $_POST['inputType'];
+
 
     $sql = "INSERT INTO materiel(Reference,Nom,Version) VALUES ('$Reference','$Nom','$Version')";
-    mysqli_query($conn,$sql);
+    mysqli_query(BD_Link::connexion(),$sql);
     echo "Votre Matériel est ajouté";
 }
  include('footer.php'); ?>

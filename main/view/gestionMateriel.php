@@ -1,5 +1,6 @@
 <?php include('navbar.php'); 
 
+session_start();
 require_once("../entity/BD_Link.php");
 
 
