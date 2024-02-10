@@ -19,7 +19,17 @@
 <div class="d-flex justify-content-center align-items-center h-100 flex-column">
     <h1>Gestionnaire d'emprunts</h1>
     <p class="text-center mb-5">Bienvenue sur le gestionnaire d'emprunts</p>
-    <a href="login.php" class="btn btn-primary border-white p-4 fw-bold">Commencer</a>
+    <?php
+        if (isset($_SESSION["matricule"])) {
+            if ($_SESSION["isAdmin"] == 1) {
+                echo "<a href='../view/profilAdmin.php' class='btn btn-primary border-white p-4 fw-bold'>Commencer</a>";
+            } else {
+                echo "<a href='../view/profilEmprunteur.php' class='btn btn-primary border-white p-4 fw-bold'>Commencer</a>";
+            }
+        } else {
+            echo "<a href='../view/login.php' class='btn btn-primary border-white p-4 fw-bold'>Commencer</a>";
+        }
+    ?>
     <div id="display_status" class="test rounded-circle"></div>
 </div>
 

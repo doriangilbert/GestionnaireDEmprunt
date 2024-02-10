@@ -27,6 +27,7 @@ session_start();?>
                 <th scope='col'>Nom</th>
                 <th scope='col'>Version</th>
                 <th scope='col'>Statut</th>
+                <th scope='col'>Emprunt</th>
                 <th scope='col'>Edition</th>
                 ";
             }
@@ -61,6 +62,9 @@ session_start();?>
                         <td>$row[Nom]</td>
                         <td>$row[Version]</td>
                         <td>$_SESSION[isAdmin]</td>
+                        <td>
+                            <a class='btn btn-info btn-sm' href='ajoutEmprunt.php?ref=$row[Reference]'>Emprunter</a>
+                        </td>
                         <td>
                             <a class='btn btn-info btn-sm' href='gestionMateriel.php?ref=$row[Reference]'>Edit</a>
                         </td>
