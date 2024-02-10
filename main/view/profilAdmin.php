@@ -24,7 +24,7 @@ session_start();?>
         <a href="showHardware.php" class="btn btn-primary m-5 p-4">Gérer les matériels</a>
         <a href="consultationEmpruntsAdmin.php" class="btn btn-primary m-5 p-4">Gérer les emprunts</a>
     </div>
-    <a href="index.php" class="btn btn-primary m-5 p-4">Se déconnecter</a>
+    <a href="logout.php" class="btn btn-primary m-5 p-4">Se déconnecter</a>
 </div>
 
 <?php include('footer.php') ?>
