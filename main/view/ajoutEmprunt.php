@@ -1,5 +1,6 @@
 <?php include('../view/navbar.php');
-session_start();
+if (!isset($_SESSION))
+    session_start();
 $_SESSION['reference'] = $_GET['ref'];
 ?>
 <!DOCTYPE html>

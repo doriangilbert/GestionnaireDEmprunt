@@ -1,5 +1,6 @@
 <?php
-session_start();
+if (!isset($_SESSION))
+    session_start();
 
 if (isset($_POST['inputIdentifiant']) && isset($_POST['inputMotDePasse'])) {
 

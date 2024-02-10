@@ -2,7 +2,8 @@
 
 require_once("../entity/Emprunt.php");
 
-session_start();
+if (!isset($_SESSION))
+    session_start();
 
 $reference = $_SESSION['reference'];
 $dateDebut = $_POST['inputDateDebut'];

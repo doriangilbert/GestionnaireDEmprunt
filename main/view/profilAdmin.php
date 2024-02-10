@@ -1,5 +1,6 @@
-<?php include('navbar.php'); 
-session_start();?>
+<?php include('navbar.php');
+if (!isset($_SESSION))
+    session_start();?>
 <!DOCTYPE html>
 <html lang="fr" class="h-100">
 
@@ -23,16 +24,14 @@ session_start();?>
         <div class="col-4">
             <div class="d-flex flex-column align-items-center">
                 <p>Partie Utilisateur</p>
-                <a class="btn btn-primary m-3 p-4" href="ajoutUtilisateur.php">Création Utilisateur</a>
-                <a class="btn btn-primary m-3 p-4" href="consultationUtilisateur.php">Consultation Utilisateur</a>
+                <a class="btn btn-primary m-3 p-4" href="showUser.php">Gestion Utilisateur</a>
             </div>
         </div>
         <div class="col-4"></div>
         <div class="col-4">
             <div class="d-flex flex-column align-items-center">
                 <p>Partie Emprunt</p>
-                <a class="btn btn-primary m-3 p-4" href="ajoutMateriel.php">Ajouter un Matériel</a>
-                <a class="btn btn-primary m-3 p-4" href="consultationMateriel.php">Consulter les Matériels</a>
+                <a class="btn btn-primary m-3 p-4" href="showHardware.php">Gestion Matériels</a>
             </div>
         </div>
     </div>
