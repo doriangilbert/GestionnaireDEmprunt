@@ -32,6 +32,7 @@ $users = $controller->getAllUser();
                 <td>Email</td>
                 <td>Téléphone</td>
                 <td>Administrateur</td>
+                <td></td>
             </tr>
         </thead>
         <tbody>
@@ -44,6 +45,7 @@ $users = $controller->getAllUser();
                 $admin = "";
                 if ($user["Admin"] == 1)
                     $admin = "admin";
+                $detailUser = "userDetail.php?matricule=".$user["Matricule"];
                 echo "
                     <tr>
                         <td>".$user["Matricule"]."</td>
@@ -52,6 +54,7 @@ $users = $controller->getAllUser();
                         <td>".$user["Email"]."</td>
                         <td>".$tel."</td>
                         <td>".$admin."</td>
+                        <td><a href='".$detailUser."'>Détail</a></td>
                     </tr>";
             }
             ?>
