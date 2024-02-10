@@ -1,4 +1,5 @@
-<?php include('navbar.php'); ?>
+<?php include('../view/navbar.php');
+session_start();?>
 <!DOCTYPE html>
 <html lang="fr" class="h-100">
 
@@ -12,14 +13,13 @@
 
 <body class="h-100 text-black">
 
-
 <div class="d-flex justify-content-center align-items-center h-100 flex-column">
     <h1 class="mb-5">Emprunt d'un matériel</h1>
-    <h5 class="mb-3">Référence : XXXXX</h5>
-    <h5 class="mb-3">Nom : XXXXXXXXXX</h5>
-    <h5 class="mb-3">Version : XX</h5>
+    <h5 class="mb-3">Référence : <?php echo $_SESSION['reference']; ?></h5>
+    <h5 class="mb-3">Nom : <?php echo $_SESSION['nomMateriel']; ?></h5>
+    <h5 class="mb-3">Version : <?php echo $_SESSION['versionMateriel']; ?></h5>
     <h5 class="mb-3">Numéro de téléphone : XXXXXXXXXX</h5>
-    <form class="mt-3">
+    <form method="post" action="../controller/ajoutEmpruntController.php" class="mt-3">
         <div class="row mb-3 align-items-center">
             <label for="inputDateDebut" class="form-label col m-0">Date de début de l'emprunt :</label>
             <input type="date" class="form-control col" id="inputDateDebut" required>
@@ -35,7 +35,7 @@
     </div>
 </div>
 
-<?php include('footer.php'); ?>
+<?php include('../view/footer.php'); ?>
 
 </body>
 
