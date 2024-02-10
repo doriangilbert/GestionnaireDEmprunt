@@ -35,7 +35,6 @@ if (!isset($_SESSION))
                 <option value="1">Ordinateur</option>
                 <option value="2">Téléphone Android</option>
                 <option value="3">Téléphone Apple</option>
-                <option value="2">Téléphone (autre)</option>
                 <option value="4">Tablette Android</option>
                 <option value="5">Tablette Apple</option>
             </select>

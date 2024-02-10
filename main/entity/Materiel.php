@@ -71,6 +71,24 @@ class Materiel
         $this->photo = $photo;
         $this->type = $type;
 
+        switch ($type) {
+            case 1:
+                $reference = "XX" . $reference;
+                break;
+            case 2:
+                $reference = "AN" . $reference;
+                break;
+            case 3:
+                $reference = "AP" . $reference;
+                break;
+            case 4:
+                $reference = "AN" . $reference;
+                break;
+            case 5:
+                $reference = "AP" . $reference;
+                break;
+        }
+
         $result = mysqli_query(BD_Link::connexion(), "SELECT * FROM materiel WHERE Reference = '$reference'") or die("Erreur BD : Select materiel");
         $ligne_result = mysqli_fetch_assoc($result);
         if ($ligne_result != NULL) {
