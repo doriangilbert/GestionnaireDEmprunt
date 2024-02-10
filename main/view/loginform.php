@@ -35,7 +35,12 @@ if (isset($_POST['inputIdentifiant']) && isset($_POST['inputMotDePasse'])) {
 
                 $_SESSION['isAdmin'] = $row['Admin'];
 
+
+                $_SESSION['alert_message'] = "Bienvenue sur notre site. La connexion a bien été établie";
+
+
                 if ($_SESSION['isAdmin'] == 1){
+
                     header("Location:profilAdmin.php");
                 }
                 else{

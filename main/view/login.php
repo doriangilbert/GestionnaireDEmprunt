@@ -1,6 +1,12 @@
 <?php include('navbar.php');
 session_start();
-if (isset($_SESSION["matricule"])) header("Location:index.php");
+if (isset($_SESSION["isAdmin"]))
+    if ($_SESSION["isAdmin"] == 1){
+    header("Location:profilAdmin.php");
+}
+else{
+    header("Location: profilEmprunteur.php");
+}
 ?>
 
 <!DOCTYPE html>
