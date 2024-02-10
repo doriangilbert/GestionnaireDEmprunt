@@ -8,7 +8,13 @@ if (isset($_POST['inputNom']) && isset($_POST['inputVersion']) && isset($_POST['
     $Version = $_POST['inputVersion'];
     $Type = $_POST['inputType'];
 
-    $materiel = new Materiel($Reference, $Nom, $Version, NULL, $Type, NULL);
+    try {
+        $materiel = new Materiel($Reference, $Nom, $Version, NULL, $Type, NULL);
+    } catch (Exception $e) {
+        $_SESSION['alert_message'] = $e->getMessage();
+        header('Location: ../view/ajoutMateriel.php');
+        exit();
+    }
 
     $_SESSION['alert_message'] = "Materiel ajouté avec succès";
 

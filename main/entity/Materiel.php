@@ -49,6 +49,13 @@ class Materiel
         $this->ram_memoire = $ram_memoire;
         $this->ram_frequence = $ram_frequence;
         $this->type = $type;
+
+        $result = mysqli_query(BD_Link::connexion(), "SELECT * FROM materiel WHERE Reference = '$reference'") or die("Erreur BD : Select materiel");
+        $ligne_result = mysqli_fetch_assoc($result);
+        if ($ligne_result != NULL) {
+            throw new Exception("Référence déjà utilisée");
+        }
+
         /*mysqli_query(BD_Link::connexion(), "INSERT INTO numero_telephone (indicatif, numero) VALUES ('+33', '$numTel')") or die("Erreur BD : Insert numéro de téléphone");
         $result = mysqli_query(BD_Link::connexion(), "SELECT id_numero_telephone FROM numero_telephone ORDER BY id_numero_telephone DESC LIMIT 1") or die("Erreur BD : Select numéro de téléphone");
         $ligne_result = mysqli_fetch_assoc($result);
@@ -63,6 +70,13 @@ class Materiel
         $this->version = $version;
         $this->photo = $photo;
         $this->type = $type;
+
+        $result = mysqli_query(BD_Link::connexion(), "SELECT * FROM materiel WHERE Reference = '$reference'") or die("Erreur BD : Select materiel");
+        $ligne_result = mysqli_fetch_assoc($result);
+        if ($ligne_result != NULL) {
+            throw new Exception("Référence déjà utilisée");
+        }
+
         /*mysqli_query(BD_Link::connexion(), "INSERT INTO numero_telephone (indicatif, numero) VALUES ('+33', '$numTel')") or die("Erreur BD : Insert numéro de téléphone");
         $result = mysqli_query(BD_Link::connexion(), "SELECT id_numero_telephone FROM numero_telephone ORDER BY id_numero_telephone DESC LIMIT 1") or die("Erreur BD : Select numéro de téléphone");
         $ligne_result = mysqli_fetch_assoc($result);

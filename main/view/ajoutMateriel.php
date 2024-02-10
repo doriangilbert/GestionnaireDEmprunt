@@ -56,23 +56,7 @@ if (!isset($_SESSION))
     </form>
 </div>
 
-<?php
-
-if (isset($_POST['inputNom']) && isset($_POST['inputVersion']) && isset($_POST['inputReference']) && isset($_POST['inputNumTel'])) {
-    require_once("../entity/BD_Link.php");
-    $Reference = $_POST['inputReference'];
-    $Nom = $_POST['inputNom'];
-    $Version = $_POST['inputVersion'];
-    $Type = $_POST['inputType'];
-
-
-    $sql = "INSERT INTO materiel(Reference,Nom,Version) VALUES ('$Reference','$Nom','$Version')";
-    mysqli_query(BD_Link::connexion(), $sql);
-    echo "Votre Matériel est ajouté";
-}
-include('../view/footer.php');
-
-?>
+<?php include('../view/footer.php'); ?>
 
 </body>
 
