@@ -36,7 +36,7 @@ if (!isset($_SESSION))
             </div>
         </div>
     </div>
-    <a href="../view/logout.php" class="btn btn-primary m-5 p-4">Se déconnecter</a>
+    <a href="../controller/logout.php" class="btn btn-primary m-5 p-4">Se déconnecter</a>
 </div>
 
 <?php include('../view/footer.php') ?>

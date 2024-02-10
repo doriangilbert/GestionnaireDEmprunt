@@ -101,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         }
         ?>
         <button type="submit" class="btn btn-primary w-100 mt-4">Valider</button>
-        <a href="<?php echo "../controller/delete.php?ref=$Reference" ?>" class="btn btn-primary w-100 mt-4">Supprimer le matériel</a>
+        <a href="<?php echo "../controller/deleteHardware.php?ref=$Reference" ?>" class="btn btn-primary w-100 mt-4">Supprimer le matériel</a>
     </form>
     <div>
         <a href="../view/profilAdmin.php" class="btn btn-primary w-100 mt-4">Annuler</a>

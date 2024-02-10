@@ -26,7 +26,7 @@ if (isset($_SESSION["isAdmin"]))
 
 <div class="d-flex justify-content-center align-items-center h-100 flex-column">
     <h1 class="mb-5">Connexion</h1>
-    <form method="POST" action="../view/loginform.php">
+    <form method="POST" action="../controller/loginController.php">
         <div class="mb-3">
             <label for="inputIdentifiant" class="form-label">Identifiant</label>
             <input type="text" class="form-control w-100" id="inputIdentifiant" name="inputIdentifiant" required>

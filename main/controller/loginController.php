@@ -29,18 +29,10 @@ if (isset($_POST['inputIdentifiant']) && isset($_POST['inputMotDePasse'])) {
 
         if ($row['email'] === $identifiant && $row['password'] === $motdepasse) {
 
-            echo "Logged in!";
-
             $_SESSION['matricule'] = $row['matricule'];
             $_SESSION['email'] = $row['email'];
-
             $_SESSION['motdepasse'] = $row['password'];
-
             $_SESSION['isAdmin'] = $row['Admin'];
-
-
-            $_SESSION['alert_message'] = "Bienvenue sur notre site. La connexion a bien été établie";
-
 
             if ($_SESSION['isAdmin'] == 1) {
 

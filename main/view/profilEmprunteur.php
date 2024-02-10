@@ -23,7 +23,7 @@ if (!isset($_SESSION))
     <h3 class="mb-5">Matricule : <?php echo $_SESSION['matricule']; ?> </h3>
     <a href="../view/consultationEmprunts.php" class="btn btn-primary m-5 p-4">Consulter vos emprunts en cours</a>
     <a href="../view/showHardware.php" class="btn btn-primary m-5 p-4">Faire un nouvel emprunt de matériel</a>
-    <a href="../view/logout.php" class="btn btn-primary m-5 p-4">Se déconnecter</a>
+    <a href="../controller/logout.php" class="btn btn-primary m-5 p-4">Se déconnecter</a>
 </div>
 
 <?php include('../view/footer.php') ?>
