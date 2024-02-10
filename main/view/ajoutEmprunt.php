@@ -25,10 +25,17 @@ $_SESSION['reference'] = $_GET['ref'];
         <div class="row mb-3 align-items-center">
             <label for="inputDateDebut" class="form-label col m-0">Date de début de l'emprunt :</label>
             <input type="date" class="form-control col" id="inputDateDebut" name="inputDateDebut" required>
+            <script>
+                document.getElementById('inputDateDebut').valueAsDate = new Date();
+                document.getElementById('inputDateDebut').min = new Date().toISOString().split('T')[0];
+            </script>
         </div>
         <div class="row mb-3 align-items-center">
             <label for="inputDateFin" class="form-label col m-0">Date de début de l'emprunt :</label>
             <input type="date" class="form-control col" id="inputDateFin" name="inputDateFin" required>
+            <script>
+                document.getElementById('inputDateFin').min = new Date().toISOString().split('T')[0];
+            </script>
         </div>
         <button type="submit" class="btn btn-primary w-100 mt-4">Valider</button>
     </form>
