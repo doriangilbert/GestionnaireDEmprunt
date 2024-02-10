@@ -70,3 +70,12 @@ if(isset($_POST['inputNom']) && isset($_POST['inputVersion']) && isset($_POST['i
 
 </html>
 
+<?php
+
+if(isset($_SESSION['alert_message'])){
+    $alert_message = $_SESSION['alert_message'];
+    echo "<script>alert('$alert_message')</script>";
+    unset($_SESSION['alert_message']);
+}
+
+?>

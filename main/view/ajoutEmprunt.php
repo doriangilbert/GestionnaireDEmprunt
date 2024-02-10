@@ -49,3 +49,13 @@ $_SESSION['reference'] = $_GET['ref'];
 </body>
 
 </html>
+
+<?php
+
+if(isset($_SESSION['alert_message'])){
+    $alert_message = $_SESSION['alert_message'];
+    echo "<script>alert('$alert_message')</script>";
+    unset($_SESSION['alert_message']);
+}
+
+?>
