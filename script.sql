@@ -11,14 +11,14 @@ CREATE TABLE Materiel(
    Stockage SMALLINT,
    Version VARCHAR(15)  NOT NULL,
    PRIMARY KEY(Reference)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE Numero_Telephone(
    Id_Numero_Telephone INT AUTO_INCREMENT,
    Indicatif VARCHAR(4)  NOT NULL,
    Numero VARCHAR(13)  NOT NULL,
    PRIMARY KEY(Id_Numero_Telephone)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE Ordinateur(
    Reference VARCHAR(5) ,
@@ -26,7 +26,7 @@ CREATE TABLE Ordinateur(
    GPU_frequence DECIMAL(3,2)  ,
    PRIMARY KEY(Reference),
    FOREIGN KEY(Reference) REFERENCES Materiel(Reference)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE Telephone(
    Reference VARCHAR(5) ,
@@ -36,14 +36,14 @@ CREATE TABLE Telephone(
    UNIQUE(Id_Numero_Telephone),
    FOREIGN KEY(Reference) REFERENCES Materiel(Reference),
    FOREIGN KEY(Id_Numero_Telephone) REFERENCES Numero_Telephone(Id_Numero_Telephone)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE Tablette(
    Reference VARCHAR(5) ,
    Photo_MP DECIMAL(4,2)  ,
    PRIMARY KEY(Reference),
    FOREIGN KEY(Reference) REFERENCES Materiel(Reference)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE Utilisateur(
    Matricule VARCHAR(7) ,
@@ -58,7 +58,7 @@ CREATE TABLE Utilisateur(
    UNIQUE(Id_Numero_Telephone),
    UNIQUE(Email),
    FOREIGN KEY(Id_Numero_Telephone) REFERENCES Numero_Telephone(Id_Numero_Telephone)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE Emprunte(
    Reference VARCHAR(5) ,
@@ -68,4 +68,4 @@ CREATE TABLE Emprunte(
    PRIMARY KEY(Reference),
    FOREIGN KEY(Reference) REFERENCES Materiel(Reference),
    FOREIGN KEY(Matricule) REFERENCES Utilisateur(Matricule)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
