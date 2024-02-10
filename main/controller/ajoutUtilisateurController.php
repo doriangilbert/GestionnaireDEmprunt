@@ -14,7 +14,14 @@ if ($admin == "on") {
 } else {
     $admin = 0;
 }
-$utilisateur = new Utilisateur($matricule, $nom, $prenom, $email, $password, $numTel, $admin);
+
+try {
+    $utilisateur = new Utilisateur($matricule, $nom, $prenom, $email, $password, $numTel, $admin);
+} catch (Exception $e) {
+    $_SESSION['alert_message'] = $e->getMessage();
+    header('Location: ../view/ajoutUtilisateur.php');
+    exit();
+}
 
 $_SESSION['alert_message'] = "Utilisateur ajouté avec succès";
 

@@ -35,6 +35,13 @@ class Utilisateur
         $this->password = $password;
         $this->numTel = $numTel;
         $this->admin = $admin;
+
+        $result = mysqli_query(BD_Link::connexion(), "SELECT * FROM utilisateur WHERE matricule = '$matricule' OR email = '$email'") or die("Erreur BD : Select utilisateur");
+        $ligne_result = mysqli_fetch_assoc($result);
+        if ($ligne_result != NULL) {
+            throw new Exception("Matricule ou email déjà utilisé");
+        }
+
         mysqli_query(BD_Link::connexion(), "INSERT INTO numero_telephone (indicatif, numero) VALUES ('+33', '$numTel')") or die("Erreur BD : Insert numéro de téléphone");
         $result = mysqli_query(BD_Link::connexion(), "SELECT id_numero_telephone FROM numero_telephone ORDER BY id_numero_telephone DESC LIMIT 1") or die("Erreur BD : Select numéro de téléphone");
         $ligne_result = mysqli_fetch_assoc($result);
