@@ -26,6 +26,7 @@ $users = $controller->getAllUser();
 
 <div class="container mt-5 pt-5">
     <h2 class="w-100 text-center mb-3">Consultation des utilisateurs</h2>
+    <a class="btn btn-primary float-end mb-3" href="userAdd.php">Nouvel utilisateur</a>
     <table class="table table-hover table-responsive table-bordered border-black">
         <thead>
         <tr class="fw-bold">
@@ -66,7 +67,7 @@ $users = $controller->getAllUser();
 </div>
 
 <div class="d-flex justify-content-center align-items-center h-100 flex-column">
-    <a href="../view/ajoutUtilisateur.php" class="btn btn-primary m-5 p-4">Ajouter un utilisateur</a>
+    <a href="../view/userAdd.php" class="btn btn-primary m-5 p-4">Ajouter un utilisateur</a>
 </div>
 
 <?php include('../view/footer.php') ?>

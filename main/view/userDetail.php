@@ -10,7 +10,7 @@ if ($_SESSION["matricule"] != $_GET["matricule"])
 
 require_once("../controller/userController.php");
 $controller = new userController();
-$user = $controller->getById($_SESSION["matricule"])->fetch_assoc();
+$user = $controller->getById($_GET["matricule"])->fetch_assoc();
 
 ?>
 
@@ -29,7 +29,11 @@ $user = $controller->getById($_SESSION["matricule"])->fetch_assoc();
 
 <div class="d-flex justify-content-center align-items-center h-100 flex-column">
     <h1 class="mb-5">Consultation de l'utilisateur</h1>
-    <form method="post" action="">
+    <form method="post" action="updateUser.php">
+        <div class="row mb-3 align-items-center">
+            <label for="inputMatricule" class="form-label col m-0">Matricule :</label>
+            <input type="text" class="form-control col" id="inputMatricule" name="inputMatricule" maxlength="30" readonly value="<?php echo $user["Matricule"] ?>">
+        </div>
         <div class="row mb-3 align-items-center">
             <label for="inputNom" class="form-label col m-0">Nom :</label>
             <input type="text" class="form-control col" id="inputNom" name="inputNom" placeholder="Smith" maxlength="30" required value="<?php echo $user["Nom"] ?>">
@@ -44,31 +48,36 @@ $user = $controller->getById($_SESSION["matricule"])->fetch_assoc();
         </div>
         <div class="row mb-3 align-items-center">
             <label for="inputNumTel" class="form-label col m-0">Numéro de téléphone :</label>
-            <input type="text" class="form-control col" id="inputNumTel" name="inputNumTel" placeholder="XXXXXXXXXX" minlength="10" maxlength="10" pattern="^0[1-9]([-. ]?[0-9]{2}){4}$" required value="<?php echo $user["Numero"] ?>">
+            <input type="text" class="form-control col" id="inputNumTel" name="inputNumTel" placeholder="XXXXXXXXXX" minlength="10" maxlength="10" pattern="^0[1-9]([-. ]?[0-9]{2}){4}$" value="0<?php echo $user["Numero"] ?>">
         </div>
         <div class="row mb-3 align-items-center">
             <label for="inputMotDePasse" class="form-label col m-0">Nouveau mot de passe :</label>
-            <input type="password" class="form-control col" id="inputMotDePasse" name="inputMotDePasse" placeholder="XXXXX" required>
+            <input type="password" class="form-control col" id="inputMotDePasse" name="inputMotDePasse" placeholder="XXXXX">
         </div>
         <?php
         if ($_SESSION["isAdmin"] == 1 && $_SESSION["matricule"] != $_GET["matricule"]) {
+            $checked = $user["Admin"] == 1 ? "checked" : "";
             echo "
         <div class=\"row mb-3 align-items-center\">
             <label for=\"inputAdministrateur\" class=\"form-label col m-0\">Administrateur ?</label>
-            <input type=\"checkbox\" class=\"form-check col\" id=\"inputAdministrateur\" name=\"inputAdministrateur\">
+            <input type=\"hidden\" value='off' name=\"inputAdministrateur\">
+            <input type=\"checkbox\" class=\"form-check col\" id=\"inputAdministrateur\" name=\"inputAdministrateur\" ".$checked.">
         </div>
             ";
         }
         ?>
         <div class="row">
-            <div class="col-6">
+            <div class="col-4">
+                <a class="btn btn-secondary w-100 mt-4" href="<?php echo $_SESSION['isAdmin'] == 1 ? "showUser.php" : "profilEmprunteur.php" ?>">Retour</a>
+            </div>
+            <div class="col-4">
                 <button type="submit" class="btn btn-primary w-100 mt-4">Modifier</button>
             </div>
             <?php
             if ($_SESSION["isAdmin"] == 1 && $_SESSION["matricule"] != $_GET["matricule"])
                 echo "
-            <div class=\"col-6\">
-                <a class=\"btn btn-danger w-100 mt-4\" href=\"\">Supprimer</a>
+            <div class=\"col-4\">
+                <a class=\"btn btn-danger w-100 mt-4\" href=\"userDelete.php?matricule=".$_GET["matricule"]."\">Supprimer</a>
             </div>
                 ";
             ?>

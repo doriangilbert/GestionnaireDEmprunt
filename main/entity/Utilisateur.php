@@ -42,11 +42,15 @@ class Utilisateur
             throw new Exception("Matricule ou email déjà utilisé");
         }
 
-        mysqli_query(BD_Link::connexion(), "INSERT INTO numero_telephone (indicatif, numero) VALUES ('+33', '$numTel')") or die("Erreur BD : Insert numéro de téléphone");
-        $result = mysqli_query(BD_Link::connexion(), "SELECT id_numero_telephone FROM numero_telephone ORDER BY id_numero_telephone DESC LIMIT 1") or die("Erreur BD : Select numéro de téléphone");
-        $ligne_result = mysqli_fetch_assoc($result);
-        $idNumTel = $ligne_result['id_numero_telephone'];
-        mysqli_query(BD_Link::connexion(), "INSERT INTO utilisateur (matricule, nom, prenom, email, password, id_numero_telephone, admin) VALUES ('$matricule', '$nom', '$prenom', '$email', '$password', '$idNumTel', '$admin')") or die ("Erreur BD : Insert utilisateur");
+        if ($numTel != '') {
+            mysqli_query(BD_Link::connexion(), "INSERT INTO numero_telephone (indicatif, numero) VALUES ('+33', '$numTel')") or die("Erreur BD : Insert numéro de téléphone");
+            $result = mysqli_query(BD_Link::connexion(), "SELECT id_numero_telephone FROM numero_telephone ORDER BY id_numero_telephone DESC LIMIT 1") or die("Erreur BD : Select numéro de téléphone");
+            $ligne_result = mysqli_fetch_assoc($result);
+            $idNumTel = $ligne_result['id_numero_telephone'];
+            mysqli_query(BD_Link::connexion(), "INSERT INTO utilisateur (matricule, nom, prenom, email, password, id_numero_telephone, admin) VALUES ('$matricule', '$nom', '$prenom', '$email', '$password', '$idNumTel', '$admin')") or die ("Erreur BD : Insert utilisateur");
+        }
+        else
+            mysqli_query(BD_Link::connexion(), "INSERT INTO utilisateur (matricule, nom, prenom, email, password, admin) VALUES ('$matricule', '$nom', '$prenom', '$email', '$password', '$admin')") or die ("Erreur BD : Insert utilisateur");
     }
 
     public function __constructGet($matricule, $password)

@@ -6,7 +6,7 @@ $nom = $_POST['inputNom'];
 $prenom = $_POST['inputPrenom'];
 $email = $_POST['inputEmail'];
 $matricule = $_POST['inputMatricule'];
-$numTel = $_POST['inputNumTel'];
+$numTel = substr($_POST['inputNumTel'], 1);
 $password = $_POST['inputMotDePasse'];
 $admin = $_POST['inputAdministrateur'];
 if ($admin == "on") {
@@ -25,6 +25,6 @@ try {
 
 $_SESSION['alert_message'] = "Utilisateur ajouté avec succès";
 
-header('Location: ../view/ajoutUtilisateur.php');
+header('Location: ../view/showUser.php');
 
 ?>
