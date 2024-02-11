@@ -21,6 +21,8 @@ if (!isset($_SESSION))
 
 <div class="container mt-5 pt-5">
     <h2 class="w-100 text-center mb-3">Consultation des matériels informatique</h2>
+    <a class="btn btn-primary" href="ajoutMateriel.php">Nouveau matériel</a>
+    <br>
     <table class="table table-hover table-responsive table-bordered border-black">
         <thead>
         <tr>

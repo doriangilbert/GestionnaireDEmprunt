@@ -71,7 +71,7 @@ class Materiel
 
         switch ($type) {
             case 1:
-                $reference = "XX" . $reference;
+                $reference = "PC" . $reference;
                 break;
             case 2:
                 $reference = "AN" . $reference;
@@ -80,10 +80,10 @@ class Materiel
                 $reference = "AP" . $reference;
                 break;
             case 4:
-                $reference = "AN" . $reference;
+                $reference = "TABAN" . $reference;
                 break;
             case 5:
-                $reference = "AP" . $reference;
+                $reference = "TABAP" . $reference;
                 break;
         }
 

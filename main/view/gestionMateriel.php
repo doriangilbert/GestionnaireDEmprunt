@@ -18,7 +18,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
     $Reference = $_GET["ref"];
 
-    $sql = "SELECT * FROM materiel WHERE Reference=$Reference";
+
+    $sql = "SELECT * FROM materiel WHERE Reference='$Reference'";
     $result = BD_Link::connexion()->query($sql);
     $row = $result->fetch_assoc();
 
