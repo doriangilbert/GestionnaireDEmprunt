@@ -27,4 +27,6 @@ Il faut tout d'abord changer le mot de passe de root en se connectant avec root 
 Puis il faut créer une nouvelle base de données avec "Nouvelle base de données" puis comme nom il faut mettre "db_gestemprunt". Puis il faut aller dans Importer et importer le ficher "script.sql".
 
 Pour accèder au site web, il faut mettre le tout le contenu du github dans un dossier nommé dans "C:\wamp64\www" puis après il faut aller dans le projet dans un navigateur 
-et cliquer sur le dossier du projet puis main puis view.
+et cliquer sur le dossier du projet puis main puis view ou vous pouvez entrer sur le site avec le lien "localhost/"nomdudossierajouté"/main/view/index.php .
+
+Si vous voulez vous connectez avec un profil administrateur, la base de données comporte déjà un compte sous le matricule "0000001" et comme mot de passe "password".
