@@ -1,4 +1,5 @@
 <?php
+
 if (!isset($_SESSION))
     session_start();
 if ($_SESSION['isAdmin'] != 1)
@@ -10,4 +11,6 @@ require_once("../controller/userController.php");
 $controller = new userController();
 $controller->deleteUser($matricule);
 
-header("Location:showUser.php");
+header("Location: ../view/showUser.php");
+
+?>

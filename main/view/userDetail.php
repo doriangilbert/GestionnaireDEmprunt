@@ -29,7 +29,7 @@ $user = $controller->getById($_GET["matricule"])->fetch_assoc();
 
 <div class="d-flex justify-content-center align-items-center h-100 flex-column">
     <h1 class="mb-5">Consultation de l'utilisateur</h1>
-    <form method="post" action="updateUser.php">
+    <form method="post" action="../controller/updateUser.php">
         <div class="row mb-3 align-items-center">
             <label for="inputMatricule" class="form-label col m-0">Matricule :</label>
             <input type="text" class="form-control col" id="inputMatricule" name="inputMatricule" maxlength="30" readonly value="<?php echo $user["Matricule"] ?>">
@@ -77,7 +77,7 @@ $user = $controller->getById($_GET["matricule"])->fetch_assoc();
             if ($_SESSION["isAdmin"] == 1 && $_SESSION["matricule"] != $_GET["matricule"])
                 echo "
             <div class=\"col-4\">
-                <a class=\"btn btn-danger w-100 mt-4\" href=\"userDelete.php?matricule=".$_GET["matricule"]."\">Supprimer</a>
+                <a class=\"btn btn-danger w-100 mt-4\" href=\"../controller/userDelete.php?matricule=".$_GET["matricule"]."\">Supprimer</a>
             </div>
                 ";
             ?>
