@@ -62,8 +62,17 @@ class userController
     public function deleteUser($matricule)
     {
         require_once("../entity/BD_Link.php");
-        $sql = "DELETE FROM utilisateur WHERE Matricule=" . $matricule . ";";
-        return BD_Link::connexion()->query($sql);
+        $result = mysqli_query(BD_Link::connexion(), "SELECT * FROM emprunte WHERE matricule = '$matricule'");
+        if (mysqli_num_rows($result) >= 1){
+            $_SESSION['alert_message'] = "L’utilisateur en question n’a pas rendu tout le matériel informatique";
+            return 1;
+        }
+        else{
+            $sql = "DELETE FROM utilisateur WHERE Matricule=" . $matricule . ";";
+            $_SESSION['alert_message'] = "L’utilisateur a bien été supprimé";
+            return BD_Link::connexion()->query($sql);
+        }
+
     }
 }
 
