@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         </div>
         <div class="row mb-3 align-items-center">
             <label for="inputReference" class="form-label col m-0">Référence :</label>
-            <input type="text" class="form-control col" id="inputReference" name="Ref" value="<?php echo $Reference ?>" placeholder="001" minlength="3" maxlength="3" pattern="[0-9]{3}" required>
+            <input type="text" class="form-control col" id="inputReference" name="Ref" value="<?php echo $Reference ?>" placeholder="001" minlength="3" maxlength="5" required>
         </div>
         <div class="row mb-3 align-items-center">
             <label for="inputNumTel" class="form-label col m-0">Numéro de téléphone :</label>
