@@ -32,6 +32,8 @@ if (isset($_GET["ref"])) {
     $sql = "DELETE FROM materiel WHERE Reference='$Reference'";
     BD_Link::connexion()->query($sql);
 
+    $_SESSION['alert_message']="Le matériel a bien été supprimé";
+
 }
 
 header("location: ../view/showHardware.php");
