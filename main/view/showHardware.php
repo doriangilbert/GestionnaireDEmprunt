@@ -36,7 +36,6 @@ if (!isset($_SESSION))
                 <th scope='col'>Référence</th>
                 <th scope='col'>Nom</th>
                 <th scope='col'>Version</th>
-                <th scope='col'>Statut</th>
                 <th scope='col'>Emprunt</th>
                 <th scope='col'>Edition</th>
                 ";
@@ -47,7 +46,6 @@ if (!isset($_SESSION))
                 <th scope='col'>Référence</th>
                 <th scope='col'>Nom</th>
                 <th scope='col'>Version</th>
-                <th scope='col'>Statut</th>
                 <th scope='col'>Emprunt</th>
                 ";
             }
@@ -71,7 +69,6 @@ if (!isset($_SESSION))
                         <th scope='row'>$row[Reference]</th>
                         <td>$row[Nom]</td>
                         <td>$row[Version]</td>
-                        <td>$_SESSION[isAdmin]</td>
                         <td>
                             <a class='btn btn-info btn-sm' href='ajoutEmprunt.php?ref=$row[Reference]'>Emprunter</a>
                         </td>
@@ -86,7 +83,6 @@ if (!isset($_SESSION))
                         <th scope='row'>$row[Reference]</th>
                         <td>$row[Nom]</td>
                         <td>$row[Version]</td>
-                        <td>$_SESSION[isAdmin]</td>
                         <td>
                             <a class='btn btn-info btn-sm' href='ajoutEmprunt.php?ref=$row[Reference]'>Emprunter</a>
                         </td>

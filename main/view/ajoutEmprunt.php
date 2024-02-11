@@ -4,6 +4,12 @@ if (!isset($_SESSION))
     session_start();
 $_SESSION['reference'] = $_GET['ref'];
 
+require_once("../entity/BD_Link.php");
+$sql = "SELECT * FROM materiel WHERE reference = '" . $_GET['ref'] . "'";
+$result = BD_Link::connexion()->query($sql);
+$row = $result->fetch_assoc();
+$nom = $row['Nom'];
+$version = $row['Version'];
 ?>
 
 <!DOCTYPE html>
@@ -22,9 +28,8 @@ $_SESSION['reference'] = $_GET['ref'];
 <div class="d-flex justify-content-center align-items-center h-100 flex-column">
     <h1 class="mb-5">Emprunt d'un matériel</h1>
     <h5 class="mb-3">Référence : <?php echo $_GET['ref']; ?></h5>
-    <h5 class="mb-3">Nom : XXXXXXX</h5>
-    <h5 class="mb-3">Version : XXXXXXX</h5>
-    <h5 class="mb-3">Numéro de téléphone : XXXXXXXXXX</h5>
+    <h5 class="mb-3">Nom : <?php echo $nom; ?></h5>
+    <h5 class="mb-3">Version : <?php echo $version; ?></h5>
     <form method="post" action="../controller/ajoutEmpruntController.php" class="mt-3">
         <div class="row mb-3 align-items-center">
             <label for="inputDateDebut" class="form-label col m-0">Date de début de l'emprunt :</label>

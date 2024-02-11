@@ -63,8 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
 <div class="d-flex justify-content-center align-items-center h-100 flex-column">
     <h1 class="mb-5">Gestion du matériel</h1>
-    <h3 class="mb-5">Référence : <?php echo $Reference ?></h3>
-    <h3 class="mb-5">Type : XXXXXXX</h3>
+    <h5 class="mb-5">Référence : <?php echo $Reference ?></h5>
     <form method="post">
         <input type="hidden" value="<?php echo $Reference ?>">
         <div class="row mb-3 align-items-center">
@@ -89,7 +88,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         </div>
         <?php
 
-        //Récupérer le matricule de l'utilisateur qui a emprunté le matériel
         $sql = "SELECT * FROM emprunte WHERE Reference='$Reference'";
         $result = BD_Link::connexion()->query($sql);
         $row = $result->fetch_assoc();
@@ -137,12 +135,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             ";
         }
         ?>
-        <button type="submit" class="btn btn-primary w-100 mt-4">Valider</button>
-        <a href="<?php echo "../controller/deleteHardware.php?ref=$Reference" ?>" class="btn btn-primary w-100 mt-4">Supprimer le matériel</a>
+        <div class="row">
+            <div class="col-4">
+                <a class="btn btn-secondary w-100 mt-4" href="<?php echo $_SESSION['isAdmin'] == 1 ? "showHardware.php" : "profilEmprunteur.php" ?>">Retour</a>
+            </div>
+            <div class="col-4">
+                <button type="submit" class="btn btn-primary w-100 mt-4">Modifier</button>
+            </div>
+            <?php
+            if ($_SESSION["isAdmin"] == 1 && $_SESSION["matricule"] != $_GET["matricule"])
+                echo "
+            <div class=\"col-4\">
+                <a class=\"btn btn-danger w-100 mt-4\" href=\"../controller/deleteHardware.php?ref=".$Reference."\">Supprimer</a>
+            </div>
+                ";
+            ?>
+        </div>
     </form>
-    <div>
-        <a href="../view/showHardware.php" class="btn btn-primary w-100 mt-4">Annuler</a>
-    </div>
 </div>
 
 <?php include('../view/footer.php'); ?>
