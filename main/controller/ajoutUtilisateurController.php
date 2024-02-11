@@ -6,7 +6,7 @@ $nom = $_POST['inputNom'];
 $prenom = $_POST['inputPrenom'];
 $email = $_POST['inputEmail'];
 $matricule = $_POST['inputMatricule'];
-$numTel = substr($_POST['inputNumTel'], 1);
+$numTel = $_POST['inputNumTel'];
 $password = $_POST['inputMotDePasse'];
 $admin = $_POST['inputAdministrateur'];
 if ($admin == "on") {

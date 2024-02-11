@@ -44,7 +44,13 @@ $_SESSION['reference'] = $_GET['ref'];
         <button type="submit" class="btn btn-primary w-100 mt-4">Valider</button>
     </form>
     <div>
-        <a href="../view/profilAdmin.php" class="btn btn-primary w-100 mt-4">Annuler</a>
+        <?php
+        if ($_SESSION['isAdmin'] == 1) {
+            echo "<a href='../view/showHardware.php' class='btn btn-primary w-100 mt-4'>Annuler</a>";
+        } else {
+            echo "<a href='../view/profilEmprunteur.php' class='btn btn-primary w-100 mt-4'>Annuler</a>";
+        }
+        ?>
     </div>
 </div>
 

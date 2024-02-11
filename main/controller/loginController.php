@@ -33,7 +33,7 @@ if (isset($_POST['inputIdentifiant']) && isset($_POST['inputMotDePasse'])) {
             $_SESSION['email'] = $row['email'];
             $_SESSION['motdepasse'] = $row['password'];
             $_SESSION['isAdmin'] = $row['Admin'];
-            $_SESSION['alert_message'] = "Bienvenue sur notre site. La connexion a bien été établie";
+            //$_SESSION['alert_message'] = "Bienvenue sur notre site. La connexion a bien été établie";
 
             if ($_SESSION['isAdmin'] == 1) {
 

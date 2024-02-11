@@ -80,10 +80,10 @@ class Materiel
                 $reference = "AP" . $reference;
                 break;
             case 4:
-                $reference = "XX" . $reference;
+                $reference = "AN" . $reference;
                 break;
             case 5:
-                $reference = "XX" . $reference;
+                $reference = "AP" . $reference;
                 break;
         }
 

@@ -15,15 +15,17 @@ if (isset($_GET["ref"])) {
         case "XX":
             $sql = "DELETE FROM ordinateur WHERE Reference='$Reference'";
             BD_Link::connexion()->query($sql);
-            $sql = "DELETE FROM tablette WHERE Reference='$Reference'";
-            BD_Link::connexion()->query($sql);
             break;
         case "AN":
             $sql = "DELETE FROM telephone WHERE Reference='$Reference'";
             BD_Link::connexion()->query($sql);
+            $sql = "DELETE FROM tablette WHERE Reference='$Reference'";
+            BD_Link::connexion()->query($sql);
             break;
         case "AP":
             $sql = "DELETE FROM telephone WHERE Reference='$Reference'";
+            BD_Link::connexion()->query($sql);
+            $sql = "DELETE FROM tablette WHERE Reference='$Reference'";
             BD_Link::connexion()->query($sql);
             break;
     }
