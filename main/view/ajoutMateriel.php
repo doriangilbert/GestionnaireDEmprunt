@@ -62,6 +62,13 @@ if (!isset($_SESSION))
         </div>
         <button type="submit" class="btn btn-primary w-100 mt-4">Valider</button>
     </form>
+    <?php
+    if (isset($_SESSION["validate_message"])){
+        echo "<p style='color: blue;'> Materiel ajouté avec succès ";
+        unset($_SESSION["validate_message"]);
+    }
+
+    ?>
 </div>
 
 <?php include('../view/footer.php'); ?>

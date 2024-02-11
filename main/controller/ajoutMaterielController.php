@@ -17,7 +17,7 @@ if (isset($_POST['inputNom']) && isset($_POST['inputVersion']) && isset($_POST['
         exit();
     }
 
-    $_SESSION['alert_message'] = "Materiel ajouté avec succès";
+    $_SESSION['validate_message'] = 1;
 
     header('Location: ../view/ajoutMateriel.php');
     exit;
