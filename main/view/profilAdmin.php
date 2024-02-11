@@ -25,7 +25,7 @@ if (!isset($_SESSION))
         <div class="col-4">
             <div class="d-flex flex-column align-items-center">
                 <p>Partie Utilisateur</p>
-                <a class="btn btn-primary m-3 p-4" href="../view/showUser.php">Gestion Utilisateur</a>
+                <a class="btn btn-primary m-3 p-4" href="../view/showUser.php">Gestion Utilisateurs</a>
             </div>
         </div>
 

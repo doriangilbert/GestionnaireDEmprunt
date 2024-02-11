@@ -69,3 +69,5 @@ CREATE TABLE Emprunte(
    FOREIGN KEY(Reference) REFERENCES Materiel(Reference),
    FOREIGN KEY(Matricule) REFERENCES Utilisateur(Matricule)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO utilisateur (Matricule, Nom, Prenom, Admin, Email, Password) VALUES ('0000001', 'SMITH', 'John', 1, 'john.smith@locamat.com', 'password');
