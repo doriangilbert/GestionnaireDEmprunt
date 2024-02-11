@@ -1,3 +1,4 @@
+<?php include('navbar.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +12,7 @@
 </head>
 
 <body>
-<?php include('navbar.php') ?>
+
 <div class="container mt-5 pt-5">
     <h2 class="w-100 text-center">[Titre de la page]</h2>
     <div>
