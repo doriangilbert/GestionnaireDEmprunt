@@ -36,9 +36,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $Reference = $_POST["Ref"];
     $Nom = $_POST["Nom"];
     $Version = $_POST["Ver"];
+    $DateDDebut = $_POST["inputDateDebut"];
+    $DateDFin = $_POST["inputDateFin"];
+    $Emprunteur= $_POST["inputEmprunteur"];
 
 
-    $sql = "UPDATE materiel SET Nom='$Nom', `Version`='$Version' WHERE Reference= $Reference";
+    
+
+    $sql = "UPDATE materiel SET Nom='$Nom', `Version`='$Version' WHERE Reference= '$Reference'";
+
+    $result = BD_Link::connexion()->query($sql);
+
+    $sql = "UPDATE emprunte SET Date_de_fin='$DateDFin', Date_debut='$DateDDebut',Matricule='$Emprunteur' WHERE Reference='$Reference'";
 
     $result = BD_Link::connexion()->query($sql);
 
@@ -76,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         </div>
         <div class="row mb-3 align-items-center">
             <label for="inputReference" class="form-label col m-0">Référence :</label>
-            <input type="text" class="form-control col" id="inputReference" name="Ref" value="<?php echo $Reference ?>" placeholder="001" minlength="3" maxlength="5" required>
+            <input type="text" class="form-control col" id="inputReference" name="Ref" value="<?php echo $Reference ?>" placeholder="001" minlength="5" maxlength="5" pattern="AN[0-9]{3}|AP[0-9]{3}|XX[0-9]{3}" required>
         </div>
         <div class="row mb-3 align-items-center">
             <label for="inputNumTel" class="form-label col m-0">Numéro de téléphone :</label>
@@ -91,33 +100,65 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         $sql = "SELECT * FROM emprunte WHERE Reference='$Reference'";
         $result = BD_Link::connexion()->query($sql);
         $row = $result->fetch_assoc();
-        $Matricule = $row["Matricule"];
+        
+        if(!empty($row["Matricule"]))
+        {
+            
+            $Matricule = $row["Matricule"];
 
-        $sql = "SELECT * FROM utilisateur";
-        $result = BD_Link::connexion()->query($sql);
-        echo "<div class='row mb-3 align-items-center'>
-            <label for='inputEmprunteur' class='form-label col m-0'>Emprunteur :</label>
-            <select class='form-select col' id='inputEmprunteur' name='inputEmprunteur'>";
-        while ($row = $result->fetch_assoc()) {
-            if ($row["Matricule"] == $Matricule)
-                echo "<option value='" . $row["Matricule"] . "' selected>" . $row["Matricule"] . " - " . $row["Nom"] . " " . $row["Prenom"] . "</option>";
-            else
-                echo "<option value='" . $row["Matricule"] . "'>" . $row["Matricule"] . " - " . $row["Nom"] . " " . $row["Prenom"] . "</option>";
+            $sql = "SELECT * FROM utilisateur";
+            $result = BD_Link::connexion()->query($sql);
+            echo "<div class='row mb-3 align-items-center'>
+                <label for='inputEmprunteur' class='form-label col m-0'>Emprunteur :</label>
+                <select class='form-select col' id='inputEmprunteur' name='inputEmprunteur'>";
+            while ($row = $result->fetch_assoc()) {
+                if ($row["Matricule"] == $Matricule)
+                    echo "<option value='" . $row["Matricule"] . "' selected>" . $row["Matricule"] . " - " . $row["Nom"] . " " . $row["Prenom"] . "</option>";
+                else
+                    echo "<option value='" . $row["Matricule"] . "'>" . $row["Matricule"] . " - " . $row["Nom"] . " " . $row["Prenom"] . "</option>";
+            }
+            echo "</select>
+            </div>";
+
+            $sql = "SELECT * FROM emprunte WHERE Reference='$Reference'";
+            $result = BD_Link::connexion()->query($sql);
+
+            $row = $result->fetch_assoc();
+            echo "<div class='row mb-3 align-items-center'>
+                <label for='inputDateDebut' class='form-label col m-0'>Date de début de l'emprunt :</label>
+                <input type='date' class='form-control col' id='inputDateDebut' name='inputDateDebut' value='" . $row["Date_debut"] . "'>
+            </div>
+            <div class='row mb-3 align-items-center'>
+                <label for='inputDateFin' class='form-label col m-0'>Date de fin de l'emprunt :</label>
+                <input type='date' class='form-control col' id='inputDateFin' name='inputDateFin' value='" . $row["Date_de_fin"] . "'>
+            </div>";
         }
-        echo "</select>
-        </div>";
+        else
+        {
+            $sql = "SELECT * FROM utilisateur";
+            $result = BD_Link::connexion()->query($sql);
+            echo "<div class='row mb-3 align-items-center'>
+                <label for='inputEmprunteur' class='form-label col m-0'>Emprunteur :</label>
+                <select class='form-select col' id='inputEmprunteur' name='inputEmprunteur'>";
+            while ($row = $result->fetch_assoc()) {
+                if ($row["Matricule"] == $Matricule)
+                    echo "<option value='" . $row["Matricule"] . "' selected>" . $row["Matricule"] . " - " . $row["Nom"] . " " . $row["Prenom"] . "</option>";
+                else
+                    echo "<option value='" . $row["Matricule"] . "'>" . $row["Matricule"] . " - " . $row["Nom"] . " " . $row["Prenom"] . "</option>";
+            }
+            echo "</select>
+            </div>";
 
-        $sql = "SELECT * FROM emprunte WHERE Reference='$Reference'";
-        $result = BD_Link::connexion()->query($sql);
-        $row = $result->fetch_assoc();
-        echo "<div class='row mb-3 align-items-center'>
-            <label for='inputDateDebut' class='form-label col m-0'>Date de début de l'emprunt :</label>
-            <input type='date' class='form-control col' id='inputDateDebut' name='inputDateDebut' value='" . $row["Date_debut"] . "'>
-        </div>
-        <div class='row mb-3 align-items-center'>
-            <label for='inputDateFin' class='form-label col m-0'>Date de fin de l'emprunt :</label>
-            <input type='date' class='form-control col' id='inputDateFin' name='inputDateFin' value='" . $row["Date_de_fin"] . "'>
-        </div>";
+            echo "<div class='row mb-3 align-items-center'>
+                <label for='inputDateDebut' class='form-label col m-0'>Date de début de l'emprunt :</label>
+                <input type='date' class='form-control col' id='inputDateDebut' name='inputDateDebut'>
+            </div>
+            <div class='row mb-3 align-items-center'>
+                <label for='inputDateFin' class='form-label col m-0'>Date de fin de l'emprunt :</label>
+                <input type='date' class='form-control col' id='inputDateFin' name='inputDateFin'>
+            </div>";
+        }
+        
 
         ?>
 
@@ -143,7 +184,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                 <button type="submit" class="btn btn-primary w-100 mt-4">Modifier</button>
             </div>
             <?php
-            if ($_SESSION["isAdmin"] == 1 && $_SESSION["matricule"] != $_GET["matricule"])
+            if ($_SESSION["isAdmin"] == 1)
                 echo "
             <div class=\"col-4\">
                 <a class=\"btn btn-danger w-100 mt-4\" href=\"../controller/deleteHardware.php?ref=".$Reference."\">Supprimer</a>

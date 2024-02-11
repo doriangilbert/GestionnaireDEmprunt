@@ -20,6 +20,6 @@ try {
 
 $_SESSION['alert_message'] = "Emprunt ajouté avec succès";
 
-header('Location: ../view/ajoutEmprunt.php');
+header("Location: ../view/ajoutEmprunt.php?ref=$reference");
 
 ?>
