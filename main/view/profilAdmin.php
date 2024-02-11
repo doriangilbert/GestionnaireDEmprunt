@@ -28,11 +28,17 @@ if (!isset($_SESSION))
                 <a class="btn btn-primary m-3 p-4" href="../view/showUser.php">Gestion Utilisateur</a>
             </div>
         </div>
-        <div class="col-4"></div>
+
+        <div class="col-4">
+            <div class="d-flex flex-column align-items-center">
+                <p>Partie Matériel</p>
+                <a class="btn btn-primary m-3 p-4" href="../view/showHardware.php">Gestion Matériels</a>
+            </div>
+        </div>
         <div class="col-4">
             <div class="d-flex flex-column align-items-center">
                 <p>Partie Emprunt</p>
-                <a class="btn btn-primary m-3 p-4" href="../view/showHardware.php">Gestion Matériels</a>
+                <a class="btn btn-primary m-3 p-4" href="../view/showBorrowing.php">Gestion Emprunts</a>
             </div>
         </div>
     </div>

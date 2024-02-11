@@ -2,11 +2,14 @@
 
 if (!isset($_SESSION))
     session_start();
-if ($_SESSION['isAdmin'] != 1)
-    header("Location: ../view/index.php");
 require_once("../controller/borrowingController.php");
 $controller = new borrowingController();
-$borrowings = $controller->getAllBorrowing();
+
+if ($_SESSION['isAdmin'] != 1) {
+    $borrowings = $controller->getAllBorrowingById($_SESSION['matricule']);
+} else {
+    $borrowings = $controller->getAllBorrowing();
+}
 
 ?>
 
