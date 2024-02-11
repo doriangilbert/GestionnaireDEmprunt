@@ -35,7 +35,7 @@ $_SESSION['reference'] = $_GET['ref'];
             </script>
         </div>
         <div class="row mb-3 align-items-center">
-            <label for="inputDateFin" class="form-label col m-0">Date de début de l'emprunt :</label>
+            <label for="inputDateFin" class="form-label col m-0">Date de fin de l'emprunt :</label>
             <input type="date" class="form-control col" id="inputDateFin" name="inputDateFin" required>
             <script>
                 document.getElementById('inputDateFin').min = new Date().toISOString().split('T')[0];
