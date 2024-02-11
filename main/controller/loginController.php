@@ -33,6 +33,7 @@ if (isset($_POST['inputIdentifiant']) && isset($_POST['inputMotDePasse'])) {
             $_SESSION['email'] = $row['email'];
             $_SESSION['motdepasse'] = $row['password'];
             $_SESSION['isAdmin'] = $row['Admin'];
+            $_SESSION['alert_message'] = "Bienvenue sur notre site. La connexion a bien été établie";
 
             if ($_SESSION['isAdmin'] == 1) {
 
@@ -42,11 +43,13 @@ if (isset($_POST['inputIdentifiant']) && isset($_POST['inputMotDePasse'])) {
             }
 
         } else {
+            $_SESSION["login_error"] = 1;
             header("Location: ../view/login.php");
             exit();
         }
 
     } else {
+        $_SESSION["login_error"] = 1;
         header("Location: ../view/login.php");
         exit();
     }

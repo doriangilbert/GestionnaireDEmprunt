@@ -37,6 +37,13 @@ if (isset($_SESSION["isAdmin"]))
         </div>
         <button type="submit" class="btn btn-primary w-100 mt-4">Se connecter</button>
     </form>
+    <?php
+    if (isset($_SESSION["login_error"])){
+        echo "<p style='color: red;'> Vos identifiants sont incorrects";
+        unset($_SESSION["login_error"]);
+    }
+
+    ?>
 </div>
 
 <?php include('../view/footer.php') ?>
