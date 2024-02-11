@@ -71,7 +71,7 @@ class Materiel
 
         switch ($type) {
             case 1:
-                $reference = "PC" . $reference;
+                $reference = "XX" . $reference;
                 break;
             case 2:
                 $reference = "AN" . $reference;
@@ -80,10 +80,10 @@ class Materiel
                 $reference = "AP" . $reference;
                 break;
             case 4:
-                $reference = "TABAN" . $reference;
+                $reference = "XX" . $reference;
                 break;
             case 5:
-                $reference = "TABAP" . $reference;
+                $reference = "XX" . $reference;
                 break;
         }
 
@@ -93,10 +93,14 @@ class Materiel
             throw new Exception("Référence déjà utilisée");
         }
 
-        mysqli_query(BD_Link::connexion(), "INSERT INTO numero_telephone (indicatif, numero) VALUES ('+33', '$num')") or die("Erreur BD : Insert numéro de téléphone");
-        $result = mysqli_query(BD_Link::connexion(), "SELECT id_numero_telephone FROM numero_telephone ORDER BY id_numero_telephone DESC LIMIT 1") or die("Erreur BD : Select numéro de téléphone");
-        $ligne_result = mysqli_fetch_assoc($result);
-        $idNumTel = $ligne_result['id_numero_telephone'];
+        if(!empty($num))
+        {
+            mysqli_query(BD_Link::connexion(), "INSERT INTO numero_telephone (indicatif, numero) VALUES ('+33', '$num')") or die("Erreur BD : Insert numéro de téléphone");
+            $result = mysqli_query(BD_Link::connexion(), "SELECT id_numero_telephone FROM numero_telephone ORDER BY id_numero_telephone DESC LIMIT 1") or die("Erreur BD : Select numéro de téléphone");
+            $ligne_result = mysqli_fetch_assoc($result);
+            $idNumTel = $ligne_result['id_numero_telephone'];
+        }
+        
 
         mysqli_query(BD_Link::connexion(), "INSERT INTO materiel(Reference, Nom, Photo, CPU_nombre_coeurs, CPU_frequence, Ecran_frequence, Ecran_taille, RAM_frequence, RAM_memoire, Stockage, `Version`) VALUES ('$reference','$nom','$photo',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$version')") or die ("Erreur BD : Insert materiel");
         switch ($type) {

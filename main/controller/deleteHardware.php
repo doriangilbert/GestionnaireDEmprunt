@@ -12,8 +12,10 @@ if (isset($_GET["ref"])) {
     require_once("../entity/BD_Link.php");
 
     switch ($Type) {
-        case "PC":
+        case "XX":
             $sql = "DELETE FROM ordinateur WHERE Reference='$Reference'";
+            BD_Link::connexion()->query($sql);
+            $sql = "DELETE FROM tablette WHERE Reference='$Reference'";
             BD_Link::connexion()->query($sql);
             break;
         case "AN":
@@ -22,14 +24,6 @@ if (isset($_GET["ref"])) {
             break;
         case "AP":
             $sql = "DELETE FROM telephone WHERE Reference='$Reference'";
-            BD_Link::connexion()->query($sql);
-            break;
-        case "TABAN":
-            $sql = "DELETE FROM tablette WHERE Reference='$Reference'";
-            BD_Link::connexion()->query($sql);
-            break;
-        case "TABAP":
-            $sql = "DELETE FROM tablette WHERE Reference='$Reference'";
             BD_Link::connexion()->query($sql);
             break;
     }
