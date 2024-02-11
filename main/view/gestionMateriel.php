@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
 <div class="d-flex justify-content-center align-items-center h-100 flex-column">
     <h1 class="mb-5">Gestion du matériel</h1>
-    <h3 class="mb-5">Référence : XXXXX</h3>
+    <h3 class="mb-5">Référence : <?php echo $Reference ?></h3>
     <h3 class="mb-5">Type : XXXXXXX</h3>
     <form method="post">
         <input type="hidden" value="<?php echo $Reference ?>">
