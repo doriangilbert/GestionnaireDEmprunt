@@ -19,7 +19,7 @@ try {
     $utilisateur = new Utilisateur($matricule, $nom, $prenom, $email, $password, $numTel, $admin);
 } catch (Exception $e) {
     $_SESSION['alert_message'] = $e->getMessage();
-    header('Location: ../view/ajoutUtilisateur.php');
+    header('Location: ../view/userAdd.php');
     exit();
 }
 

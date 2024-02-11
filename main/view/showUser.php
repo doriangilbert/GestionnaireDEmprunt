@@ -66,9 +66,14 @@ $users = $controller->getAllUser();
     </table>
 </div>
 
-<div class="d-flex justify-content-center align-items-center h-100 flex-column">
-    <a href="../view/userAdd.php" class="btn btn-primary m-5 p-4">Ajouter un utilisateur</a>
-</div>
+<?php
+
+if (isset($_SESSION['alert_message'])) {
+    $alert_message = $_SESSION['alert_message'];
+    echo "<script>alert('$alert_message')</script>";
+    unset($_SESSION['alert_message']);
+}
+?>
 
 <?php include('../view/footer.php') ?>
 
