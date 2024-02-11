@@ -17,15 +17,15 @@ class userController
         return BD_Link::connexion()->query($sql);
     }
 
-    public function updateUser($matriucle, $nom, $prenom, $email, $tel, $password, $admin)
+    public function updateUser($matricule, $nom, $prenom, $email, $tel, $password, $admin)
     {
         require_once("../entity/BD_Link.php");
-        $user = $this->getById($matriucle)->fetch_assoc();
+        $user = $this->getById($matricule)->fetch_assoc();
         $tel = substr($tel, 1);
         var_dump($tel);
         if ($user["Numero"] != '') {
             if ($tel == '') {
-                $sql = "UPDATE utilisateur SET Id_Numero_Telephone = null WHERE Matricule = '$matriucle'";
+                $sql = "UPDATE utilisateur SET Id_Numero_Telephone = null WHERE Matricule = '$matricule'";
                 BD_Link::connexion()->query($sql);
                 $sql = "DELETE FROM numero_telephone WHERE Id_Numero_Telephone = " . $user["Id_Numero_Telephone"];
                 BD_Link::connexion()->query($sql);
@@ -42,20 +42,20 @@ class userController
                 $ligne_result = mysqli_fetch_assoc($result);
                 $idNumTel = $ligne_result['id_numero_telephone'];
 
-                $sql = "UPDATE utilisateur SET Id_Numero_Telephone = '$idNumTel' WHERE Matricule = '$matriucle'";
+                $sql = "UPDATE utilisateur SET Id_Numero_Telephone = '$idNumTel' WHERE Matricule = '$matricule'";
                 BD_Link::connexion()->query($sql);
             }
         }
         if ($admin != null) {
             $admin = $admin == 'on' ? 1 : 0;
-            $sql = "UPDATE utilisateur SET Admin = ".$admin." WHERE Matricule = '".$matriucle."'";
+            $sql = "UPDATE utilisateur SET Admin = ".$admin." WHERE Matricule = '".$matricule."'";
             BD_Link::connexion()->query($sql);
         }
         if (!empty($password)){
-            $sql = "UPDATE utilisateur SET Password = ".$password." WHERE Matricule = ".$matriucle;
+            $sql = "UPDATE utilisateur SET Password = '".$password."' WHERE Matricule = '".$matricule."'";
             BD_Link::connexion()->query($sql);
         }
-        $sql = "UPDATE utilisateur SET Nom = '".$nom."', Prenom = '".$prenom."', Email = '".$email."' WHERE Matricule = '".$matriucle."'";
+        $sql = "UPDATE utilisateur SET Nom = '".$nom."', Prenom = '".$prenom."', Email = '".$email."' WHERE Matricule = '".$matricule."'";
         BD_Link::connexion()->query($sql);
     }
 
