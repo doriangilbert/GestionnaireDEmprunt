@@ -20,14 +20,14 @@ if (isset($_POST['inputIdentifiant']) && isset($_POST['inputMotDePasse'])) {
     $motdepasse = validate($_POST['inputMotDePasse']);
 
 
-    $sql = "SELECT matricule,email,password,Admin FROM utilisateur WHERE email='$identifiant' AND password='$motdepasse'";
+    $sql = "SELECT matricule,email,password,Admin FROM utilisateur WHERE (matricule='$identifiant' OR email='$identifiant') AND password='$motdepasse'";
     $result = mysqli_query(BD_Link::connexion(), $sql);
 
     if (mysqli_num_rows($result) === 1) {
 
         $row = mysqli_fetch_assoc($result);
 
-        if ($row['email'] === $identifiant && $row['password'] === $motdepasse) {
+        if (($row['email'] === $identifiant || $row['matricule'] === $identifiant) && $row['password'] === $motdepasse) {
 
             $_SESSION['matricule'] = $row['matricule'];
             $_SESSION['email'] = $row['email'];
