@@ -18,13 +18,13 @@ class Emprunt
         $this->matricule = $matricule;
 
         if ($dateDebut > $dateFin) {
-            throw new Exception("La date de fin doit être postérieure à la date de début");
+            throw new Exception("La date de fin doit obligatoirement se situer après la date de début d’emprunt");
         }
 
         $result = mysqli_query(BD_Link::connexion(), "SELECT * FROM emprunte WHERE reference = '$reference'") or die("Erreur BD : Select emprunt");
         while ($ligne_result = mysqli_fetch_assoc($result)) {
             if (($dateDebut >= $ligne_result['Date_debut'] && $dateDebut <= $ligne_result['Date_de_fin']) || ($dateFin >= $ligne_result['Date_debut'] && $dateFin <= $ligne_result['Date_de_fin'])) {
-                throw new Exception("Un emprunt est déjà en cours pour ce matériel");
+                throw new Exception("Le matériel est déjà emprunté par une autre personne. Veuillez la contacter ou attendre que le matériel soit de nouveau disponible.");
             }
         }
 
