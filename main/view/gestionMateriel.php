@@ -88,6 +88,42 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             <input type="file" class="form-control col" id="inputPhoto" name="Photo" accept=".png, .jpg, .jpeg, .svg">
         </div>
         <?php
+
+        //Récupérer le matricule de l'utilisateur qui a emprunté le matériel
+        $sql = "SELECT * FROM emprunte WHERE Reference='$Reference'";
+        $result = BD_Link::connexion()->query($sql);
+        $row = $result->fetch_assoc();
+        $Matricule = $row["Matricule"];
+
+        $sql = "SELECT * FROM utilisateur";
+        $result = BD_Link::connexion()->query($sql);
+        echo "<div class='row mb-3 align-items-center'>
+            <label for='inputEmprunteur' class='form-label col m-0'>Emprunteur :</label>
+            <select class='form-select col' id='inputEmprunteur' name='inputEmprunteur'>";
+        while ($row = $result->fetch_assoc()) {
+            if ($row["Matricule"] == $Matricule)
+                echo "<option value='" . $row["Matricule"] . "' selected>" . $row["Matricule"] . " - " . $row["Nom"] . " " . $row["Prenom"] . "</option>";
+            else
+                echo "<option value='" . $row["Matricule"] . "'>" . $row["Matricule"] . " - " . $row["Nom"] . " " . $row["Prenom"] . "</option>";
+        }
+        echo "</select>
+        </div>";
+
+        $sql = "SELECT * FROM emprunte WHERE Reference='$Reference'";
+        $result = BD_Link::connexion()->query($sql);
+        $row = $result->fetch_assoc();
+        echo "<div class='row mb-3 align-items-center'>
+            <label for='inputDateDebut' class='form-label col m-0'>Date de début de l'emprunt :</label>
+            <input type='date' class='form-control col' id='inputDateDebut' name='inputDateDebut' value='" . $row["Date_debut"] . "'>
+        </div>
+        <div class='row mb-3 align-items-center'>
+            <label for='inputDateFin' class='form-label col m-0'>Date de fin de l'emprunt :</label>
+            <input type='date' class='form-control col' id='inputDateFin' name='inputDateFin' value='" . $row["Date_de_fin"] . "'>
+        </div>";
+
+        ?>
+
+        <?php
         if (!empty($successMessage)) {
             echo "
             <div class='row mb-3'>
@@ -105,7 +141,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         <a href="<?php echo "../controller/deleteHardware.php?ref=$Reference" ?>" class="btn btn-primary w-100 mt-4">Supprimer le matériel</a>
     </form>
     <div>
-        <a href="../view/profilAdmin.php" class="btn btn-primary w-100 mt-4">Annuler</a>
+        <a href="../view/showHardware.php" class="btn btn-primary w-100 mt-4">Annuler</a>
     </div>
 </div>
 
