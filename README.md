@@ -20,11 +20,11 @@ Site web de gestionnaire d'emprunt de matériel informatique
 Pour ce mode d'emploi, nous allons utiliser Wampserver64.
 
 Tout d'abord, il faut créer la base de données : 
-      Après avoir lancé Wampserver64, aller dans la partie phpmyadmin en cliquant avec le clique gauche sur l'icone Wampserver64 et sur la partie phpmyadmin.
+Après avoir lancé Wampserver64, aller dans la partie phpmyadmin en cliquant avec le clique gauche sur l'icone Wampserver64 et sur la partie phpmyadmin.
 
-      Il faut tout d'abord changer le mot de passe de root en se connectant avec root et pas de mot de passe puis aller dans "Compte utilisateurs", root puis change password et remplacer par root.
+Il faut tout d'abord changer le mot de passe de root en se connectant avec root et pas de mot de passe puis aller dans "Compte utilisateurs", root puis change password et remplacer par root.
 
-      Puis il faut créer une nouvelle base de données avec "Nouvelle base de données" puis comme nom il faut mettre "db_gestemprunt". Puis il faut aller dans Importer et importer le ficher "script.sql".
+Puis il faut créer une nouvelle base de données avec "Nouvelle base de données" puis comme nom il faut mettre "db_gestemprunt". Puis il faut aller dans Importer et importer le ficher "script.sql".
 
 Pour accèder au site web, il faut mettre le tout le contenu du github dans un dossier nommé dans "C:\wamp64\www" puis après il faut aller dans le projet dans un navigateur 
 et cliquer sur le dossier du projet puis main puis view.
