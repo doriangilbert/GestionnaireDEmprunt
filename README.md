@@ -15,7 +15,7 @@ Projet de création d'un site internet lié à une base de données permettant d
     - contient les pages HTML
 - ressources
   - images
-    - contient les images utilisés dans le projet
+    - contient les images utilisées dans le projet
   - styles
     - contient les feuilles de style
 
